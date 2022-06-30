@@ -24,6 +24,16 @@ git pull --rebase 别名 master
 git config --global http.sslVerify "false"
 ```
 
+##### 4. SSH 的配置
+
+每台电脑都有其特定的ssh，第一次在电脑上使用ssh时需要设置
+
+```
+ssh-keygen -t rsa -C '308327267@qq.com'
+```
+
+输完命令后的操作可以直接回车使用默认即可，然后需要在电脑上找到 ssh key，windows的路径一般是C:\Users\Administrator\.ssh下 的 **id_rsa.pub** 中，然后将其复制到github的设置中；
+
 
 
 
@@ -44,6 +54,7 @@ git config --global http.sslVerify "false"
 | git reset  --hard 版本号             | 版本穿梭                                         |
 | git rm 文件名                        | 删除文件，之后需要commit以及push                 |
 | git rm -r --cached 文件夹名          | -r表示删除文件夹，--cached表示保留本地仅删除远程 |
+| git add -A .                         | 注意还有一个'.'  ；可以添加所有改变的文件        |
 
 git rm --cached hello.txt	//删除暂存区里的文件hello.txt
 
