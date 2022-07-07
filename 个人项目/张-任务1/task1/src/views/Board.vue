@@ -1,5 +1,7 @@
 <template>
-  <div>Board 组件</div>
+  <div>
+    <el-card> Board组件 </el-card>
+  </div>
 </template>
 
 <script>

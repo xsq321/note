@@ -44,7 +44,6 @@ export default {
 .el-main {
   background-color: #e9eef3;
   color: #333;
-  text-align: center;
-  height: 500px;
+  height: 700px; //会同步影响 aside 的高度
 }
 </style>

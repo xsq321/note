@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 
 import Home from "@/views/Home";
 import Board from "@/views/Board";
+import List from "@/views/List";
 
 Vue.use(VueRouter);
 
@@ -18,13 +19,17 @@ const router = new VueRouter({
       component: Home,
       children: [
         {
-          path: "/",
-          redirect: "/board",
+          path: "",
+          redirect: "board",
         },
         {
-          path: "/board",
+          path: "board",
           name: "board",
           component: Board,
+        },
+        {
+          path: "list",
+          component: List,
         },
       ],
     },
