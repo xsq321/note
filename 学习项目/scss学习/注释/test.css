@@ -1,0 +1,15 @@
+@charset "UTF-8";
+#app {
+  color: green;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  text-align: center;
+  font-size: large; }
+
+/* 
+多行注释，编译之后不会消失，但在压缩之后会消失
+*/
+/*!
+永不消失的多行注释
+*/
