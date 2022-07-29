@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>图形</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.24/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.24/"></script>
+
+    <script>
+      require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/Graphic",
+        "esri/layers/GraphicsLayer",
+      ], function (Map, MapView, Graphic, GraphicsLayer) {
+        const map = new Map({
+          basemap: "topo-vector",
+        });
+
+        const view = new MapView({
+          map: map,
+          center: [-118.805, 34.027],
+          zoom: 13,
+          container: "viewDiv",
+        });
+
+        //添加图形图层
+        const graphicsLayer = new GraphicsLayer();
+        map.add(graphicsLayer);
+
+        //添加点图形,分别是点，点的样式,
+        const point = {
+          type: "point",
+          longitude: -118.80657463861,
+          latitude: 34.0005930608889,
+        };
+        const simpleMarkerSymbol = {
+          type: "simple-marker",
+          color: [266, 119, 40],
+          outline: {
+            color: "white", //颜色可以写成数组、字符串的样式，如果要写成 rgb 的形式也得加上引号表示字符串
+            width: 1,
+          },
+        };
+        const pointGraphic = new Graphic({
+          geometry: point,
+          symbol: simpleMarkerSymbol,
+          popupTemplate: {
+            title: "{Name}",
+            content: "{Description}",
+          },
+          attributes: {
+            Name: "Graphic",
+            Description: "point",
+          },
+        });
+        graphicsLayer.add(pointGraphic); //添加至图层
+
+        //添加线图形
+        const polyline = {
+          type: "polyline",
+          paths: [
+            [-118.821527826096, 34.0139576938577], //Longitude, latitude
+            [-118.814893761649, 34.0080602407843], //Longitude, latitude
+            [-118.808878330345, 34.0016642996246], //Longitude, latitude
+          ],
+        };
+        const simpleLineSymbol = {
+          type: "simple-line",
+          color: [226, 119, 40], // Orange
+          width: 2,
+        };
+        const polylineGraphic = new Graphic({
+          geometry: polyline,
+          symbol: simpleLineSymbol,
+          popupTemplate: {
+            title: "{Name}",
+            content: "{Description}",
+          },
+          attributes: {
+            Name: "Graphic",
+            Description: "polyline",
+          },
+        });
+        graphicsLayer.add(polylineGraphic);
+
+        //添加多边形
+        const polygon = {
+          type: "polygon",
+          rings: [
+            [-118.818984489994, 34.0137559967283], //Longitude, latitude
+            [-118.806796597377, 34.0215816298725], //Longitude, latitude
+            [-118.791432890735, 34.0163883241613], //Longitude, latitude
+            [-118.79596686535, 34.008564864635], //Longitude, latitude
+            [-118.808558110679, 34.0035027131376], //Longitude, latitude
+          ],
+        };
+        const simpleFillSymbol = {
+          type: "simple-fill",
+          color: [227, 139, 79, 0.8], // Orange, opacity 80%
+          outline: {
+            color: [255, 255, 255],
+            width: 1,
+          },
+        };
+        const polygonGraphic = new Graphic({
+          geometry: polygon,
+          symbol: simpleFillSymbol,
+          //弹窗
+          popupTemplate: {
+            title: "{Name}",
+            content: "{Description}",
+          },
+          attributes: {
+            Name: "Graphic",
+            Description: "polygon",
+          },
+        });
+        graphicsLayer.add(polygonGraphic);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>

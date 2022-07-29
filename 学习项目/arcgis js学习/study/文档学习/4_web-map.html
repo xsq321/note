@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>topo-vector底图</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.24/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.24/"></script>
+
+    <script>
+      require([
+        "esri/WebMap",
+        "esri/views/MapView",
+        "esri/widgets/ScaleBar",
+        "esri/widgets/Legend",
+      ], function (WebMap, MapView, ScaleBar, Legend) {
+        const webMap = new WebMap({
+          portalItem: {
+            id: "41281c51f9de45edaf1c8ed44bb10e30",
+          },
+        });
+
+        const view = new MapView({
+          map: webMap,
+          container: "viewDiv",
+        });
+
+        const scaleBar = new ScaleBar({
+          view: view,
+          unit: "metric",
+        });
+        view.ui.add(scaleBar, "bottom-left");
+        const legend = new Legend({
+          view: view,
+        });
+        view.ui.add(legend, "top-right");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>

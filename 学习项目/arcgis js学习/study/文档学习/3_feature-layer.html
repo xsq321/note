@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>featureLayer</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.24/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.24/"></script>
+
+    <script>
+      require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/FeatureLayer",
+      ], function (Map, MapView, FeatureLayer) {
+        const map = new Map({
+          basemap: "topo-vector",
+        });
+
+        const view = new MapView({
+          map: map,
+          center: [-118.805, 34.027],
+          zoom: 13,
+          container: "viewDiv",
+        });
+
+        //点要素图层，并为点添加样式
+        const trailheadsRenderer = {
+          type: "simple",
+          symbol: {
+            type: "picture-marker",
+            url: "http://static.arcgis.com/images/Symbols/NPS/npsPictograph_0231b.png",
+            width: "18px",
+            height: "18px",
+          },
+        };
+        const trailheadsLabels = {
+          symbol: {
+            type: "text",
+            color: "#FFFFFF",
+            haloColor: "#5E8D74",
+            haloSize: "2px",
+            font: {
+              size: "12px",
+              family: "Noto Sans",
+              style: "italic",
+              weight: "normal",
+            },
+          },
+
+          labelPlacement: "above-center",
+          labelExpressionInfo: {
+            expression: "$feature.TRL_NAME",
+          },
+        };
+        const trailheads = new FeatureLayer({
+          url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0",
+          renderer: trailheadsRenderer, //图标样式，此处用图片代替普通的点
+          labelingInfo: [trailheadsLabels], //图标上的文字标签
+        });
+        map.add(trailheads);
+
+        //线要素图层，并为线添加样式
+        const trailsRenderer = {
+          type: "simple",
+          symbol: {
+            color: "#BA55D3",
+            type: "simple-line",
+            style: "solid",
+          },
+
+          visualVariables: [
+            {
+              type: "size",
+              field: "ELEV_GAIN",
+              minDataValue: 0,
+              maxDataValue: 2300,
+              minSize: "3px",
+              maxSize: "7px",
+            },
+          ],
+        };
+        const trails = new FeatureLayer({
+          url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0",
+          renderer: trailsRenderer,
+          opacity: 0.75,
+        });
+        map.add(trails, 0); //0表示将该图层添加至数组的顶部，确保在点要素图层的前面显示
+
+        //多边形要素图层（面要素图层）
+        const parksLayer = new FeatureLayer({
+          url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space/FeatureServer/0",
+        });
+        map.add(parksLayer, 0); //确保在线要素图层的前面显示，以确保不重叠，便于交互
+      });
+    </script>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
