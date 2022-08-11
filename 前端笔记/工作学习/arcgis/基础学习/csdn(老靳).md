@@ -2,6 +2,8 @@
 
 #### 1. 引入 gis 功能
 
+好像已经被 @arcgis/core 淘汰了
+
 ```js
 //npm i -d esri-loader
 
