@@ -111,6 +111,6 @@ fw软件测量图片的高宽度，可用于使用精灵图
 -- position: fixed;	//固定定位，使搜索栏固定
 -- transform: translateX(-50%)	//向右移自身宽度的50%
 -- box-sizing: border-box	//通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。即边框大小不会影响整个盒子的大小
---background-size: 100px auto;	//背景图片宽为100px,高自动
+-- background-size: 100px auto;	//背景图片宽为100px,高自动
 ```
 
