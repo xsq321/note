@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="c1"
+      width="600"
+      height="400"
+      style="border: 1px solid blue"
+    ></canvas>
+
+    <script>
+      var c1 = document.getElementById("c1"); // 画布
+      var ctx = c1.getContext("2d"); // 画笔
+
+      var isDraw = false;
+      c1.onmousedown = function (e) {
+        isDraw = true;
+        let x = e.pageX - c1.offsetLeft;
+        let y = e.pageY - c1.offsetTop;
+        ctx.moveTo(x, y);
+      };
+      c1.onmouseup = function () {
+        isDraw = false;
+      };
+      c1.onmouseleave = function () {
+        isDraw = false;
+      };
+      c1.onmousemove = function (e) {
+        if (isDraw) {
+          let x = e.pageX - c1.offsetLeft;
+          let y = e.pageY - c1.offsetTop;
+          ctx.lineTo(x, y);
+          ctx.stroke();
+        }
+      };
+    </script>
+  </body>
+</html>
