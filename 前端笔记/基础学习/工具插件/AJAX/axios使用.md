@@ -1,4 +1,4 @@
-#### 1. axios的基本使用
+#### 1. axios 的基本使用
 
 npm i axios
 

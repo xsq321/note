@@ -1,4 +1,4 @@
-#### 1.AJAX优缺点
+#### 1. AJAX 优缺点
 
 优点：可以无需刷新页面而与服务器端进行通信；允许你根据用户事件来更新部分页面内容
 
@@ -8,7 +8,7 @@
 
 ---
 
-#### +2. express基本使用
+#### +2. express 基本使用
 
 用于建立服务器
 
@@ -16,7 +16,7 @@ npm init --yes
 
 npm i express
 
-##### 2.1. 建立xxx.js文件
+##### 2.1. 建立 xxx.js 文件
 
 ```javascript
 const express = require('express');  //引入express
