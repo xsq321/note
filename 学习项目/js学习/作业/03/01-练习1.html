@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [];
+      for (let i = 0; i < 5; i++) {
+        while (1) {
+          let age = +prompt(`请输入第${i + 1}个0-100之间的年龄`);
+          if (age >= 0 && age <= 100) {
+            arr.push(age);
+            break;
+          } else {
+            alert(`${age}为无效年龄，请重新输入`);
+          }
+        }
+      }
+      document.write("成年人的年龄：");
+      let sum = 0,
+        max = arr[0],
+        min = arr[0];
+      for (let i = 0; i < 5; i++) {
+        if (arr[i] >= 18) {
+          document.write(`${arr[i]},`);
+        }
+        sum += arr[i];
+        if (max < arr[i]) max = arr[i];
+        if (min > arr[i]) min = arr[i];
+      }
+      document.write(`<br/>总年龄为：${sum}`);
+      document.write(`<br/>平均年龄：${sum / 5}`);
+      document.write(`<br/>最大年龄：${max}`);
+      document.write(`<br/>最小年龄：${min}`);
+    </script>
+  </body>
+</html>

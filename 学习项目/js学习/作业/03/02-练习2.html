@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [88, 20, 20, 100, 50, 10];
+      let i;
+      for (i = 0; i < arr.length; i++) {
+        if (arr[i] === 10) {
+          console.log(i);
+          break;
+        }
+      }
+      if (i === arr.length) console.log(-1);
+    </script>
+  </body>
+</html>

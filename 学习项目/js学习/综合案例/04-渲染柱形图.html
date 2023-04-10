@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 300px;
+        border-bottom: 1px solid skyblue;
+        border-left: 1px solid skyblue;
+        margin: 50px auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+      }
+      .box > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: -64px;
+      }
+      .bar {
+        background-color: pink;
+        width: 50px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      document.write(`<div class="box">`);
+      for (let i = 0; i < 4; i++) {
+        let num = prompt(`请输入第${i + 1}季度数量`);
+        document.write(`
+          <div>
+            <span>${num}</span>
+            <div class="bar" style="height:${num + "px"}"></div>
+            <h4>第${i + 1}季度</h4>
+          </div>
+        `);
+      }
+      document.write(`</div>`);
+    </script>
+  </body>
+</html>

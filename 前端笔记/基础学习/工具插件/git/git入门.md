@@ -48,19 +48,22 @@ https://www.cnblogs.com/txzob/p/14855077.html
 
 #### 1. git 常用命令
 
-| 命令名称                             | 作用                                                     |
-| ------------------------------------ | :------------------------------------------------------- |
-| git config --global user.name 用户名 | 设置用户签名                                             |
-| git config --global user.email 邮箱  | 设置用户签名                                             |
-| git init                             | 初始化本地库                                             |
-| git status                           | 查看本地库状态                                           |
-| git add 文件名                       | 添加到暂存区                                             |
-| git commit -m "日志信息" 文件名      | 提交到本地库，不指定文件名则提交暂存区所有文件           |
-| git reflog 、git log（详细）         | 查看历史记录（日志信息）；后面加个 -5 可以控制显示的条数 |
-| git reset  --hard 版本号             | 版本穿梭                                                 |
-| git rm 文件名                        | 删除文件，之后需要commit以及push                         |
-| git rm -r --cached 文件夹名          | -r表示删除文件夹，--cached表示保留本地仅删除远程         |
-| git add -A .                         | 注意还有一个'.'  ；可以添加所有改变的文件                |
+| 命令名称                             | 作用                                                         |
+| ------------------------------------ | :----------------------------------------------------------- |
+| git config --global user.name 用户名 | 设置用户签名                                                 |
+| git config --global user.email 邮箱  | 设置用户签名                                                 |
+| git init                             | 初始化本地库                                                 |
+| git status                           | 查看本地库状态                                               |
+| git add 文件名                       | 添加到暂存区                                                 |
+| git commit -m "日志信息" 文件名      | 提交到本地库，不指定文件名则提交暂存区所有文件               |
+| git reflog 、git log（详细）         | 查看历史记录（日志信息）；后面加个 -5 可以控制显示的条数     |
+| git reset  --hard 版本号             | 版本穿梭                                                     |
+| git rm 文件名                        | 删除文件，之后需要commit以及push                             |
+| git rm -r --cached 文件夹名          | -r表示删除文件夹，--cached表示保留本地仅删除远程             |
+| git add -A .                         | 注意还有一个'.'  ；可以添加所有改变的文件                    |
+| git stash save "备注的内容"          | 保存当前未 commit 的代码，并返回初始状态（干净的工作目录）   |
+| git stash apply                      | 应用最近一次的 stash ；详细：https://blog.csdn.net/weixin_44254243/article/details/125207934 |
+|                                      |                                                              |
 
 git rm --cached hello.txt	//删除暂存区里的文件hello.txt
 
@@ -76,6 +79,7 @@ ctrl+Ins复制，shift+Ins粘贴
 | git branch -v       | 查看分支                     |
 | git checkout 分支名 | 切换分支                     |
 | git merge 分支名    | 把指定的分支合并到当前分支上 |
+|                     |                              |
 
 ##### 冲突合并
 
