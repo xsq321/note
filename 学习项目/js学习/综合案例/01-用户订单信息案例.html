@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td,
+      th {
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let price = +prompt("请输入价格：");
+      let count = +prompt("请输入数量：");
+      let total = price * count;
+      let address = prompt("请输入地址：");
+
+      document.write(`
+        <div style="width: 80%; margin: 0 auto">
+          <h2 style="text-align: center">订单付款确认页面</h2>
+          <table border="1" style="margin: 0 auto; border-collapse: collapse">
+            <tr>
+              <th>商品名称</th>
+              <th>商品价格</th>
+              <th>商品数量</th>
+              <th>总价</th>
+              <th>收货地址</th>
+            </tr>
+            <tr>
+              <td>小米手机青春PLUS</td>
+              <td>${price}元</td>
+              <td>${count}</td>
+              <td>${total}元</td>
+              <td>${address}</td>
+            </tr>
+          </table>
+        </div>
+      `);
+    </script>
+    <script>
+      console.log(price);
+    </script>
+  </body>
+</html>

@@ -13,7 +13,7 @@ function fun() {
       //鼠标移上去时的样式
       trigger: "axis", //触发方式，axis 表示坐标轴触发；设置为 item 表示数据项图形触发，例如饼图
       axisPointer: {
-        type: "shadow", //移到项目上是会有阴影；可选：line, shadow, cross(十字准星)
+        type: "shadow", //移到项目上时会有阴影；可选：line, shadow, cross(十字准星)
       },
     },
     //修改图表大小，位置

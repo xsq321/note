@@ -1,0 +1,66 @@
+{
+  "type": "FeatureCollection",
+  "crs": { "type": "name", "properties": { "name": "EPSG:4326" } },
+  "features": [
+    {
+      "type": "Feature",
+      "id": 0,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [117.466567, 31.861712000000001]
+      },
+      "properties": {
+        "FID": 0,
+        "ID": 1,
+        "名称": "肥东四期污水处理厂",
+        "X": 117.466567,
+        "Y": 31.861712000000001
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [116.52028300000001, 31.792296]
+      },
+      "properties": {
+        "FID": 1,
+        "ID": 2,
+        "名称": "六安城北污水处理厂",
+        "X": 116.52028300000001,
+        "Y": 31.792296
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [117.30321499999999, 31.837637000000001]
+      },
+      "properties": {
+        "FID": 2,
+        "ID": 3,
+        "名称": "王小郢污水处理厂",
+        "X": 117.30321499999999,
+        "Y": 31.837637000000001
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [117.371684, 31.797284999999999]
+      },
+      "properties": {
+        "FID": 3,
+        "ID": 4,
+        "名称": "小仓房污水处理厂",
+        "X": 117.371684,
+        "Y": 31.797284999999999
+      }
+    }
+  ]
+}

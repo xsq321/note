@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      border: 1px solid gray;
+      border-collapse: collapse;
+      width: 400px;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <table border="1">
+      <tr>
+        <th>编号</th>
+        <th>科目</th>
+        <th>成绩</th>
+        <th>操作</th>
+      </tr>
+      <script>
+        let data = [
+          { subject: "语文", score: 46 },
+          { subject: "数学", score: 80 },
+          { subject: "英语", score: 100 },
+        ];
+        let sum = 0,
+          avg;
+        for (let i = 0; i < data.length; i++) {
+          document.write(`
+            <tr>
+              <td>${i}</td>
+              <td>${data[i].subject}</td>
+              <td>${data[i].score}</td>
+              <td><a href="#">删除</a></td>
+            </tr>
+          `);
+          sum += data[i].score;
+        }
+        avg = sum / data.length;
+        document.write(`
+          <tr>
+            <td colspan="4">总分：${sum} 平均分：${avg}</td>
+          </tr>
+        `);
+      </script>
+    </table>
+  </body>
+</html>

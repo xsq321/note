@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>topo-vector底图</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.24/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.24/"></script>
+
+    <script>
+      require(["esri/Map", "esri/views/MapView"], function (Map, MapView) {
+        const map = new Map({
+          basemap: "topo-vector",
+        });
+
+        const view = new MapView({
+          map: map,
+          center: [-118.805, 34.027],
+          zoom: 13,
+          container: "viewDiv",
+        });
+
+        view.on("click", (event) => {
+          view.popup.autoOpenEnabled = false;
+
+          let lat = Math.round(event.mapPoint.latitude * 1000) / 1000;
+          let lon = Math.round(event.mapPoint.longitude * 1000) / 1000;
+
+          view.popup.open({
+            title: "reverse geocode: [" + lon + "," + lat + "]",
+            location: event.mapPoint,
+            content: "This is a point of interest",
+          });
+        });
+        view.on("drag", function (event) {
+          // Print out the current state of the
+          // drag event.
+          console.log("drag state", event.action);
+        });
+        view.on("hold", function (event) {
+          // The event object contains the mapPoint and the screen coordinates of the location
+          // that was clicked.
+          console.log("hold at screen point", event.x, event.y);
+          console.log("hold at map point", event.mapPoint);
+        });
+        view.on("pointer-move", ["Shift"], function (event) {
+          let point = view.toMap({ x: event.x, y: event.y });
+          view.goTo(point);
+          // bufferPoint(point);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>

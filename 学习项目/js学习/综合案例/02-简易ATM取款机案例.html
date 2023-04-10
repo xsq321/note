@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let sum = 0;
+      while (1) {
+        let n = +prompt(
+          "请选择操作：\n 1.存钱 \n 2.取钱 \n 3.查看余额 \n 4.退出"
+        );
+        switch (n) {
+          case 1:
+            sum += +prompt("请输入要存入的金额");
+            break;
+          case 2:
+            sum -= +prompt("请输入要取出的金额");
+            break;
+          case 3:
+            alert(`余额为${sum}`);
+            break;
+        }
+        if (n === 4) break;
+      }
+    </script>
+  </body>
+</html>

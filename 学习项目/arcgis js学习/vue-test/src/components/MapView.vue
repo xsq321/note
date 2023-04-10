@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
 #content {
-  width: 1000px;
+  width: 100%;
   height: 800px;
   margin: 0 auto;
 }

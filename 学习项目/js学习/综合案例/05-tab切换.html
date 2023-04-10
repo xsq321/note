@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        height: 200px;
+        width: 200px;
+        display: inline-block;
+        background-color: skyblue;
+      }
+      p {
+        display: none;
+      }
+      .div {
+        margin-top: 20px;
+        display: block;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="div">
+      <p style="display: block">1</p>
+      <p>2</p>
+      <p>3</p>
+      <p>4</p>
+      <span>slei</span>
+    </div>
+    <input type="text" />
+    <script>
+      const box = document.querySelectorAll(".box");
+      const p = document.querySelectorAll("p");
+      for (let i = 0; i < 4; i++) {
+        box[i].addEventListener("mouseenter", () => {
+          const block = document.querySelector('[style*="display: block"]');
+          console.log(block);
+          block.style.display = "none";
+          p[i].style.display = "block";
+        });
+      }
+    </script>
+  </body>
+</html>

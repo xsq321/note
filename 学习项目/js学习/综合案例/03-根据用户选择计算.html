@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let n, a, b;
+      while (1) {
+        n = prompt("1.输入+-*/计算两个数的结果 \n 2.输入q退出");
+        if (n === "q") break;
+        a = prompt("请输入第一个数：");
+        b = prompt("请输入第二个数：");
+        if (n === "+") {
+          alert(`您计算的和为：${a + b}`);
+        } else if (n === "-") {
+          alert(`您计算的差为：${a - b}`);
+        } else if (n === "*") {
+          alert(`您计算的积为：${a * b}`);
+        } else if (n === "/") {
+          alert(`您计算的商为：${a / b}`);
+        }
+      }
+    </script>
+  </body>
+</html>

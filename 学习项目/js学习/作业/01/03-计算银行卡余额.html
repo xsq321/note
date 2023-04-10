@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h2 {
+        text-align: center;
+      }
+      table {
+        margin: 0 auto;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 10px 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let sum = +prompt("请输入银行卡上月余额：");
+      let charge1 = +prompt("请输入电费：");
+      let charge2 = +prompt("请输入水费：");
+      let charge3 = +prompt("请输入网费：");
+      document.write(`
+        <h2>本月银行卡消费及余额</h2>
+        <table border="1">
+          <tr>
+            <th>上月银行卡余额</th>
+            <th>电费</th>
+            <th>水费</th>
+            <th>网费</th>
+            <th>本月银行卡余额</th>
+          </tr>
+          <tr>
+            <td>${sum}</td>
+            <td>${charge1}</td>
+            <td>${charge2}</td>
+            <td>${charge3}</td>
+            <td>${sum - charge1 - charge2 - charge3}</td>
+          </tr>
+        </table>
+      `);
+    </script>
+  </body>
+</html>
