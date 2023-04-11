@@ -5,15 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .box {
+        background-color: pink;
+        padding: 20px;
+        height: 200px;
+        /* perspective: 800px; */
+      }
+      .content {
+        background-color: skyblue;
+        height: 100px;
+      }
+    </style>
   </head>
   <body>
-    <form action="#">
-      <input type="submit" />
-      <input type="file" />
-      <input type="reset" />
-    </form>
-    <script>
-      localStorage.setItem("uname", "kk");
-    </script>
+    <div class="box">
+      <div class="content">wef</div>
+    </div>
   </body>
+
+  <script>
+    const arr = [{ name: "ww" }, { name: "ww" }, { name: "ww" }];
+    arr2 = [3, 35, 3];
+    console.log(Math.max(...arr2));
+  </script>
 </html>

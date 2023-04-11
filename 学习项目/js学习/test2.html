@@ -7,14 +7,10 @@
     <title>Document</title>
   </head>
   <body>
-    <button>跳转<span>0</span></button>
     <script>
-      const btn = document.querySelector("button");
-      let x = 2;
-      btn.children[0].innerHTML = x;
-      btn.addEventListener("click", () => {
-        location.reload(true);
-      });
+      const reg = /前端/g;
+      console.log(reg.exec("前端开发前端"));
+      console.log([1, 23, 5]);
     </script>
   </body>
 </html>
