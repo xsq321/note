@@ -8,19 +8,16 @@
   </head>
   <body>
     <script>
-      function fn() {
-        let i = 0;
-        function f() {
-          i++;
-          console.log(`函数被调用了${i}次`);
+      function outer() {
+        let i = 1;
+        function fn() {
+          return i;
         }
-        return f;
+        return fn;
       }
-      const fun = fn();
-      fn()();
-      fn()();
-      fn()();
-      fn()();
+      const fun = outer();
+      let x = fun();
+      console.log(x);
     </script>
   </body>
 </html>
