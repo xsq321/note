@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .img-box {
+        float: left;
+        position: relative;
+      }
+      .img-box img {
+        width: 500px;
+        height: 280px;
+      }
+      .img-box .shadow {
+        width: 100px;
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        display: none;
+      }
+      .big {
+        width: 300px;
+        height: 300px;
+        background-color: pink;
+        margin-left: 10px;
+        float: left;
+        display: none;
+        background-image: url("./img/01.jpg");
+        background-size: 1000px 560px;
+        /* background-position: -566px -550px; */
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="img-box">
+      <img src="./img/01.jpg" alt="" />
+      <!-- <div class="shadow"></div> -->
+    </div>
+    <div class="big"></div>
+
+    <script>
+      const img = document.querySelector(".img-box img");
+      const big = document.querySelector(".big");
+      const shadow = document.querySelector(".shadow");
+      img.addEventListener("mouseenter", () => {
+        big.style.display = "block";
+      });
+      img.addEventListener("mouseleave", () => {
+        big.style.display = "none";
+      });
+      img.addEventListener("mousemove", (e) => {
+        // 有 shadow 时会存在问题，阴影部分需优化
+        let x = e.clientX;
+        let y = e.clientY;
+        // let x1 = x - 50;
+        // let y1 = y - 50;
+        // console.log(x1, y1);
+        // if (x1 < 0) x1 = 0;
+        // if (y1 < 0) y1 = 0;
+        // if (x1 > 400) x1 = 400;
+        // if (y1 > 180) y1 = 180;
+        // shadow.style.display = "block";
+        // shadow.style.left = x1 + "px";
+        // shadow.style.top = y1 + "px";
+        big.style.backgroundPosition = `${-2 * x}px ${-2 * y}px`;
+        // 只需要再进行x,y值的限制即可实现
+      });
+    </script>
+  </body>
+</html>

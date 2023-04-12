@@ -5,12 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      div {
+        height: 200px;
+        width: 200px;
+        background-color: pink;
+      }
+    </style>
   </head>
   <body>
+    <div></div>
+
     <script>
-      const reg = /前端/g;
-      console.log(reg.exec("前端开发前端"));
-      console.log([1, 23, 5]);
+      const div = document.querySelector("div");
+      div.addEventListener("mousemove", (e) => {
+        console.log(e.clientX, e.clientY);
+      });
     </script>
   </body>
 </html>
