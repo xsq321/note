@@ -5,22 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+    </style>
   </head>
   <body>
+    <div></div>
     <script>
-      function fn() {
-        let i = 0;
-        function f() {
-          i++;
-          console.log(`函数被调用了${i}次`);
-        }
-        return f;
-      }
-      const fun = fn();
-      fn()();
-      fn()();
-      fn()();
-      fn()();
+      const div = document.querySelector("div");
+      console.log(div.getBoundingClientRect());
     </script>
   </body>
 </html>
