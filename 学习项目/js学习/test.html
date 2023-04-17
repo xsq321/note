@@ -8,19 +8,8 @@
   </head>
   <body>
     <script>
-      function fn() {
-        let i = 0;
-        function f() {
-          i++;
-          console.log(`函数被调用了${i}次`);
-        }
-        return f;
-      }
-      const fun = fn();
-      fn()();
-      fn()();
-      fn()();
-      fn()();
+      const [a, b, c, d] = [1, 2, 3];
+      console.log(a, b, c, d);
     </script>
   </body>
 </html>
