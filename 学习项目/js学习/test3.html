@@ -8,8 +8,13 @@
   </head>
   <body>
     <script>
-      const [a, b, c, d] = [1, 2, 3, 4.5];
-      console.log(a, b, c, d);
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.type = "man";
+      }
+      const x = new Person("ee", 15);
+      console.log(x);
     </script>
   </body>
 </html>
