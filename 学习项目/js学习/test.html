@@ -8,8 +8,11 @@
   </head>
   <body>
     <script>
-      const [a, b, c, d] = [1, 2, 3, 4.5];
-      console.log(a, b, c, d);
+      const obj1 = { name: "ss", age: 15 };
+      let obj2 = {};
+      console.log(Object.assign(obj2, obj1));
+      obj1.name = "ll";
+      console.log(obj2);
     </script>
   </body>
 </html>
