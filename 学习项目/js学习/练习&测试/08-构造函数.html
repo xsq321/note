@@ -22,15 +22,6 @@
       person.sing();
       const person2 = new Person("kkk", 58);
       person2.sing();
-      Person.sing = function () {
-        console.log(this.flag + "正在唱歌");
-      };
-      Person.sing();
-      console.log(Person.prototype.constructor === Person);
-      console.dir(Person);
-      console.log(person.__proto__ === Person.prototype);
-      console.dir(person);
-      console.dir(person.__proto__.constructor);
     </script>
   </body>
 </html>
