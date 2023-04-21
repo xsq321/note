@@ -8,10 +8,11 @@
   </head>
   <body>
     <script>
-      function fn() {
-        console.log("ss");
+      function Person() {
+        this.name = "lll";
       }
-      console.dir(fn);
+      const person = new Person();
+      console.dir(person.constructor);
     </script>
   </body>
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="test">测试</button>
+    <button class="test2">测试2</button>
+    <script>
+      function Modal(title, content) {
+        this.title = title;
+        this.content = content;
+      }
+      Modal.prototype.open = function () {
+        let div = document.createElement("div");
+        div.className = "box";
+        div.innerHTML = `
+        <p>${this.title}</p>
+        <p>${this.content}</p>
+        <button>关闭</button>
+      `;
+        let body = document.querySelector("body");
+        body.appendChild(div);
+        div.children[2].addEventListener("click", () => {
+          body.removeChild(div);
+        });
+      };
+      const modal1 = new Modal("测试", "内容");
+      const modal2 = new Modal("测试2", "内容2");
+      document.querySelector(".test").addEventListener("click", () => {
+        modal1.open();
+      });
+      document.querySelector(".test2").addEventListener("click", () => {
+        modal2.open();
+      });
+    </script>
+  </body>
+</html>
