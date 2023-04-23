@@ -8,37 +8,8 @@
   </head>
   <body>
     <script>
-      const obj = {
-        name: "kk",
-        age: 2,
-        ee: {
-          gender: "man",
-        },
-        aa: [1, 2, 3, { text: "xx" }],
-      };
-      function cloneDeep(obj) {
-        if (typeof obj !== "object") {
-          return obj;
-        }
-        if (obj instanceof Array) {
-          let obj2 = [...obj];
-          obj2 = obj2.map((item) => {
-            return cloneDeep(item);
-          });
-          return obj2;
-        }
-        let obj2 = Object.assign({}, obj);
-        for (let key in obj2) {
-          obj2[key] = cloneDeep(obj2[key]);
-        }
-        return obj2;
-      }
-      const obj2 = cloneDeep(obj);
-      console.log(obj2);
-      obj2.ee.gender = "woman";
-      obj2.aa[0] = 9;
-      obj2.aa[3].text = "aa";
-      console.log(obj, obj2);
+      sessionStorage.setItem("ss", false);
+      console.log(sessionStorage.getItem("ss") === "false");
     </script>
   </body>
 </html>

@@ -9,16 +9,21 @@
   <body>
     <button>按钮</button>
     <script>
-      let timer = null;
-      function fn() {
+      function fun() {
         console.log("点击了按钮");
       }
-      document.querySelector("button").addEventListener("click", () => {
-        if (timer) clearTimeout(timer);
-        timer = setTimeout(() => {
-          fn();
-        }, 2000);
-      });
+      function debounce(fn, time) {
+        let timer;
+        return function () {
+          if (timer) clearTimeout(timer);
+          timer = setTimeout(() => {
+            fn();
+          }, time);
+        };
+      }
+      document
+        .querySelector("button")
+        .addEventListener("click", debounce(fun, 2000));
     </script>
   </body>
 </html>
