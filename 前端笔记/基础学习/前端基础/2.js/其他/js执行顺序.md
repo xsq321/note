@@ -42,8 +42,21 @@ console.log('d')
 - 再取一个宏任务，执行，再清空微任务队列
 - 依次循环，直到宏任务也被清空
 
-
-
-#### 事件循环
+##### 4. 事件循环
 
 https://blog.csdn.net/web2022050903/article/details/127305728
+
+##### 5. Promise
+
+是一个构造函数，用来封装异步操作并可以获取其成功或失败的结果
+
+```js
+const p = new Promise(function(resolve, reject){
+ setTimeout() //里面可以调用resolve或reject函数，分别代表成功和失败，并可以传递参数
+})
+p.then(function(value){}, function(reason){}) //成功则调第一个函数，否则第二个
+ 
+--封装读取文件，封装ajax请求
+--console.warn() console.error()
+--p.catch(function(reason))
+```
