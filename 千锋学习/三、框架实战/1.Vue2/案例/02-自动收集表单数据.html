@@ -9,28 +9,69 @@
   </head>
   <body>
     <div id="app">
-      <form action="#">
-        <p>用户名：<input type="text" name="uname" /></p>
-        <p>密码：<input type="password" name="password" /></p>
+      <form>
         <p>
-          性别： 男<input type="radio" name="gender" /> 女<input
-            type="radio"
-            name="gender"
+          用户名：<input type="text" name="uname" v-model="formData.uname" />
+        </p>
+        <p>
+          密码：<input
+            type="password"
+            name="password"
+            v-model="formData.password"
           />
         </p>
         <p>
-          爱好：足球<input type="checkbox" name="hobby" />篮球<input
+          性别： 男<input
+            type="radio"
+            name="gender"
+            v-model="formData.gender"
+            value="main"
+          />
+          女<input
+            type="radio"
+            name="gender"
+            v-model="formData.gender"
+            value="woman"
+          />
+        </p>
+        <p>
+          爱好：足球<input
             type="checkbox"
             name="hobby"
-          />乒乓球<input type="checkbox" name="hobby" />
+            v-model="formData.hobby"
+            value="足球"
+          />篮球<input
+            type="checkbox"
+            name="hobby"
+            v-model="formData.hobby"
+            value="篮球"
+          />乒乓球<input
+            type="checkbox"
+            name="hobby"
+            v-model="formData.hobby"
+            value="乒乓球"
+          />
         </p>
+        <button @click.prevent="confirm">确定</button>
       </form>
     </div>
     <script>
       Vue.config.productionTip = false;
       new Vue({
         el: "#app",
-        data: {},
+        data: {
+          formData: {
+            uname: "",
+            password: "",
+            gender: "",
+            hobby: ["篮球", "足球"],
+          },
+        },
+        methods: {
+          confirm() {
+            console.log(this.formData);
+          },
+        },
       });
     </script>
   </body>
