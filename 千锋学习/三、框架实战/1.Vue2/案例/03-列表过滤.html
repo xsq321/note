@@ -11,9 +11,10 @@
     <div id="app">
       <p><input type="text" placeholder="关键字" v-model="keyword" /></p>
       <ul>
-        <li v-for="(item,index) in arr" :key="item">{{index+1}}----{{item}}</li>
+        <li v-for="(item,index) in arr2" :key="item">
+          {{index+1}}----{{item}}
+        </li>
       </ul>
-      <div>{{ keyword | filter1 }}</div>
     </div>
     <script>
       Vue.config.productionTip = false;
@@ -23,9 +24,9 @@
           keyword: "",
           arr: ["yiyangqianxi", "ouyangnana", "gulinazha", "dilireba"],
         },
-        filters: {
-          filter1(value) {
-            return value.toUpperCase();
+        computed: {
+          arr2() {
+            return this.arr.filter((item) => item.includes(this.keyword));
           },
         },
       });

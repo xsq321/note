@@ -14,9 +14,9 @@
       };
       Object.defineProperty(obj, "name", {
         enumerable: true,
-        configurable: false,
+        configurable: true,
         get() {
-          return `${obj.name1}-${obj.name2}`;
+          return `${obj.name1}-${obj.name2}`; // 当时为对象添加属性时可直接用this代替obj
         },
         set(value) {
           let arr = value.split("-");
@@ -32,7 +32,7 @@
       for (let key in obj) {
         console.log(key);
       }
-      // delete obj.name;
+      delete obj.name;
       console.log(obj);
     </script>
   </body>
