@@ -16,7 +16,7 @@
         enumerable: true,
         configurable: true,
         get() {
-          return `${obj.name1}-${obj.name2}`; // 当时为对象添加属性时可直接用this代替obj
+          return `${obj.name1}-${obj.name2}`; // 当是为对象自己添加属性时可直接用this代替obj
         },
         set(value) {
           let arr = value.split("-");
