@@ -1,28 +1,31 @@
 <template>
   <div>
     父组件，title：{{ title }}
-    <Son :change="changeTitle" content="父组件值" />
+    <Son :change="changeTitle" content="父组件值" ref="son" />
   </div>
 </template>
 
 <script>
-import Son from "./Son.vue";
+import Son from './Son.vue'
 export default {
   data() {
     return {
-      title: "原标题",
-    };
+      title: '原标题',
+    }
   },
   components: {
     Son,
   },
   methods: {
     changeTitle(value) {
-      this.title = value;
-      console.log(this);
+      this.title = value
+      console.log(this)
     },
   },
-};
+  mounted() {
+    // console.log(this.$refs.son.val)
+  },
+}
 </script>
 
 <style lang="scss" scoped></style>

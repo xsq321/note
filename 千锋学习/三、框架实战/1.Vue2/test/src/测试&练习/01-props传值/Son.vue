@@ -7,16 +7,21 @@
 
 <script>
 export default {
-  props: ["content", "change"],
+  data() {
+    return {
+      val: 1,
+    }
+  },
+  props: ['content', 'change'],
   methods: {
     fn() {
       // this.change("改标题");
-      let that = this;
-      this.change.call(that, "标题2");
-      console.dir(this);
+      let that = this
+      this.change.call(that, '标题2')
+      console.dir(this)
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped></style>
