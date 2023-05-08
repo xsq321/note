@@ -3,7 +3,7 @@
 ```vue
 <script>
 import EZUIKit from "ezuikit-js";
-var player = null;
+let player = null;
 
 export default {
   methods:{
@@ -58,7 +58,7 @@ export default {
 <script>
 import EZUIKit from 'ezuikit-js'
 import axios from 'axios'
-var player = null
+let player = null
 export default {
   data() {
     return {
