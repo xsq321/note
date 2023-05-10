@@ -18,6 +18,7 @@
         <el-menu-item index="Comp2x1">01-props传值</el-menu-item>
         <el-menu-item index="Comp2x2">02-组件实例和Vue实例</el-menu-item>
         <el-menu-item index="Comp2x3">03-生命周期</el-menu-item>
+        <el-menu-item index="Comp2x4">04-过渡与动画</el-menu-item>
       </el-submenu>
     </el-menu>
     <!-- 动态组件，代替了使用v-if实现组件的切换 -->
@@ -32,12 +33,13 @@ import Test from './测试&练习/test/index.vue'
 import Comp2x1 from './测试&练习/01-props传值/Father.vue'
 import Comp2x2 from './测试&练习/02-组件实例和Vue实例/index.vue'
 import Comp2x3 from './测试&练习/03-生命周期/index.vue'
+import Comp2x4 from './测试&练习/04-过渡与动画/index.vue'
 
 export default {
   name: 'App',
   data() {
     return {
-      activeIndex: 'Test',
+      activeIndex: 'Comp2x4',
     }
   },
   components: {
@@ -46,6 +48,7 @@ export default {
     Comp2x1,
     Comp2x2,
     Comp2x3,
+    Comp2x4,
   },
   methods: {
     handleSelect(key, keyPath) {
