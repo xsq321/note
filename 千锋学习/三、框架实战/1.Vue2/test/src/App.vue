@@ -39,7 +39,7 @@ export default {
   name: 'App',
   data() {
     return {
-      activeIndex: 'Comp2x1',
+      activeIndex: 'Test',
     }
   },
   components: {
