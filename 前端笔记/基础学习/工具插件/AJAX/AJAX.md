@@ -105,7 +105,7 @@ xhr.onerror = function(){}	//网络异常时调用
 
 ---
 
-#### +8. axios
+#### ==+8. axios==
 
 http://www.axios-js.com/zh-cn/docs/
 
@@ -152,16 +152,14 @@ axios({
 
 #### 9. fetch函数
 
-使用fetch函数也可以发送AJAX请求
-
-发送请求时可以直接调用fetch函数：
+跟 XHR 是平级的，在 window 内置对象上，直接就能使用并发送请求；注意需要两个 then 才能得到请求结果
 
 ```javascript
 fetch('http://127.0.0.1:8000/xxx',{
     method:'POST',
     headers:{},
     body:{},	//请求体
-}).then(response=>{})
+}).then((res) => res.json()).then((res) => { console.log(res) })
 ```
 
 ---

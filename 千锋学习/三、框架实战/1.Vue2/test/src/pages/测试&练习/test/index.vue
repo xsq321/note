@@ -1,15 +1,11 @@
 <template>
-  <div>
-    <button @click="fn(1)">按钮</button>
-  </div>
+  <div>test</div>
 </template>
 
 <script>
 export default {
-  methods: {
-    fn(val) {
-      console.log(val, event)
-    },
+  mounted() {
+    console.log(process.env)
   },
 }
 </script>
