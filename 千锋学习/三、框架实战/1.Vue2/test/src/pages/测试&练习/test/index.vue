@@ -1,5 +1,8 @@
 <template>
-  <div>test</div>
+  <div>
+    <p>test</p>
+    <p>{{ $store.state.test.num }}</p>
+  </div>
 </template>
 
 <script>

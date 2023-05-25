@@ -19,6 +19,7 @@
         <el-menu-item index="comp2x2">02-组件实例和Vue实例</el-menu-item>
         <el-menu-item index="comp2x3">03-生命周期</el-menu-item>
         <el-menu-item index="comp2x4">04-过渡与动画</el-menu-item>
+        <el-menu-item index="comp2x5">05-vuex</el-menu-item>
       </el-submenu>
     </el-menu>
     <router-view style="padding: 10px"></router-view>
@@ -30,7 +31,7 @@ export default {
   name: 'App',
   data() {
     return {
-      activeIndex: 'test',
+      activeIndex: 'comp2x5',
     }
   },
   methods: {
@@ -48,5 +49,9 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+button {
+  padding: 5px 10px;
+  cursor: pointer;
 }
 </style>

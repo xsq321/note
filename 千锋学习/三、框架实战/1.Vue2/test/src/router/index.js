@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '',
-    redirect: '/test',
+    redirect: '/comp2x5',
   },
   // 案例
   {
@@ -33,6 +33,10 @@ const routes = [
   {
     path: '/comp2x4',
     component: () => import('../pages/测试&练习/04-过渡与动画'),
+  },
+  {
+    path: '/comp2x5',
+    component: () => import('../pages/测试&练习/05-vuex测试'),
   },
 ]
 
