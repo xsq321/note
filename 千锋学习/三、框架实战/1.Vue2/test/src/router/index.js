@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '',
-    redirect: '/comp2x5',
+    redirect: '/test',
   },
   // 案例
   {

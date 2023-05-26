@@ -30,14 +30,18 @@
 export default {
   name: 'App',
   data() {
-    return {
-      activeIndex: 'comp2x5',
-    }
+    return {}
+  },
+  computed: {
+    activeIndex() {
+      return this.$route.path.replace('/', '')
+    },
   },
   methods: {
     handleSelect(key, keyPath) {
+      console.log(this.$route)
       // console.log(key, keyPath)
-      this.activeIndex = key
+      // this.activeIndex = key
       this.$router.push(`/${key}`)
     },
   },

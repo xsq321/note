@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// 样式穿透，可观察控制台查看具体实现（其实就是加了一个自定义属性）
+// 样式穿透，可观察控制台查看具体实现方式（其实就是加了一个自定义属性）
 ::v-deep .btn {
   background-color: pink;
   color: red;

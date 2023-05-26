@@ -1,14 +1,26 @@
 <template>
   <div>
-    <p>test</p>
-    <p>{{ $store.state.test.num }}</p>
+    <input type="text" v-model="msg" />
+    <p>{{ msg }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  mounted() {
-    console.log(process.env)
+  data() {
+    return {
+      m: '3',
+    }
+  },
+  computed: {
+    msg: {
+      get() {
+        return this.m
+      },
+      set(val) {
+        this.m = val
+      },
+    },
   },
 }
 </script>
