@@ -10,5 +10,9 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  // vue3项目将devServer改为了server
+  server: {
+    open: true
   }
 })
