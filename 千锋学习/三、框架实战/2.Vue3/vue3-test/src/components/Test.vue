@@ -1,17 +1,14 @@
 <template>
-  <div>num: {{ num }}</div>
-  <p><button @click="changeNum">num++</button></p>
+  <div></div>
 </template>
 
 <script>
-import { ref } from 'vue'
 export default {
   setup() {
-    let num = ref(1)
-    const changeNum = () => {
-      num.value++
-    }
-    return { num, changeNum }
+    console.dir(Proxy)
+    console.dir(Reflect)
+
+    return {}
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input type="text" v-model="msg" />
-    <p>{{ msg }}</p>
+    {{ arr }}
+    <p><button @click="arr.splice(0, 1, ++arr[0])">修改</button></p>
   </div>
 </template>
 
@@ -9,21 +9,8 @@
 export default {
   data() {
     return {
-      m: '3',
+      arr: [1, 2, 3],
     }
-  },
-  computed: {
-    msg: {
-      get() {
-        return this.m
-      },
-      set(val) {
-        this.m = val
-      },
-    },
-  },
-  beforeCreate() {
-    console.log(this.m)
   },
 }
 </script>

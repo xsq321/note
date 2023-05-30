@@ -10,15 +10,11 @@
     <el-menu-item index="Test">test</el-menu-item>
     <el-sub-menu index="1">
       <template #title>测试&练习</template>
-      <el-menu-item index="comp2x1">01-props传值</el-menu-item>
-      <el-menu-item index="comp2x2">02-组件实例和Vue实例</el-menu-item>
-      <el-menu-item index="comp2x3">03-生命周期</el-menu-item>
-      <el-menu-item index="comp2x4">04-过渡与动画</el-menu-item>
-      <el-menu-item index="comp2x5">05-vuex</el-menu-item>
+      <el-menu-item index="Comp1x1">01-Vue3响应式</el-menu-item>
     </el-sub-menu>
     <el-sub-menu index="2">
       <template #title>案例</template>
-      <el-menu-item index="comp1x1">01-分页组件</el-menu-item>
+      <el-menu-item index="comp2x1">01-分页组件</el-menu-item>
     </el-sub-menu>
   </el-menu>
   <div style="padding: 10px">
@@ -29,10 +25,12 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import Test from './components/Test.vue'
+import Comp1x1 from './components/测试&练习/01-Vue3响应式/index.vue'
 
 export default defineComponent({
   components: {
-    Test
+    Test,
+    Comp1x1
   },
   setup() {
     let activeIndex = ref('Test')
@@ -56,5 +54,9 @@ export default defineComponent({
 button {
   padding: 5px 10px;
   cursor: pointer;
+}
+p,
+hr {
+  margin: 10px 0;
 }
 </style>
