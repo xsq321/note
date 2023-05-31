@@ -22,8 +22,9 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from 'vue'
+
 import Test from './components/Test.vue'
 import Comp1x1 from './components/测试&练习/01-Vue3响应式/index.vue'
 
