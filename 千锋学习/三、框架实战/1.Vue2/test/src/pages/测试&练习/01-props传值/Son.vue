@@ -3,6 +3,7 @@
     子组件，内容：{{ this.content }} <button @click="fn">改变父组件标题</button><br />
     子组件value：{{ value }}
     <button @click="$emit('update:value', '修改数据')" class="btn" id="btn">该变父组件值</button>
+    <div>$listeners：{{ $listeners }} // 函数显现不出来，可观察控制台</div>
   </div>
 </template>
 
@@ -31,6 +32,7 @@ export default {
     this.$emit('son', '子组件参数')
     // 测试子组件是否可以监听父组件事件
     this.$parent.$on('father', this.fn2)
+    console.log('$listeners：', this.$listeners)
   },
 }
 </script>

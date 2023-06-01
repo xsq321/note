@@ -1,27 +1,12 @@
 <template>
-  <div>{{ stu }}</div>
-  <p><button @click="stu.score.all.one = 88">修改</button></p>
+  <div></div>
 </template>
 
 <script setup>
-import { computed, mergeProps, reactive, ref, watch } from 'vue'
+import { useAttrs } from 'vue'
 
-const stu = reactive({
-  name: 'kk',
-  age: 'ii',
-  score: {
-    english: 85,
-    all: {
-      one: 70
-    }
-  }
-})
-
-console.log(stu)
-console.log(stu.score)
-watch(stu.score, (newVal, oldVal) => {
-  console.log(newVal, oldVal)
-})
+const attrs = useAttrs()
+console.log(attrs)
 </script>
 
 <style lang="scss" scoped></style>
