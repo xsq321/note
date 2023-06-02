@@ -8,7 +8,7 @@ import App from './App.vue'
 
 const app = createApp(App)
 
+// console.log(app)
+
 app.use(ElementPlus)
 app.mount('#app')
-
-// console.log(app)

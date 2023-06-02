@@ -3,10 +3,9 @@
 </template>
 
 <script setup>
-import { useAttrs } from 'vue'
+import { getCurrentInstance } from 'vue'
 
-const attrs = useAttrs()
-console.log(attrs)
+console.log(getCurrentInstance())
 </script>
 
 <style lang="scss" scoped></style>
