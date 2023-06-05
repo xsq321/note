@@ -14,7 +14,7 @@
     </el-sub-menu>
     <el-sub-menu index="2">
       <template #title>案例</template>
-      <el-menu-item index="comp2x1">01-分页组件</el-menu-item>
+      <el-menu-item index="Comp2x1">01-组合式函数</el-menu-item>
     </el-sub-menu>
   </el-menu>
   <div style="padding: 10px">
@@ -26,12 +26,16 @@
 import { defineComponent, ref } from 'vue'
 
 import Test from './components/Test.vue'
+
 import Comp1x1 from './components/测试&练习/01-Vue3响应式/index.vue'
+
+import Comp2x1 from './components/案例/01-组合式函数/index.vue'
 
 export default defineComponent({
   components: {
     Test,
-    Comp1x1
+    Comp1x1,
+    Comp2x1
   },
   setup() {
     let activeIndex = ref('Test')

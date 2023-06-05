@@ -3,9 +3,18 @@
 </template>
 
 <script setup>
-import { getCurrentInstance } from 'vue'
+import { reactive, readonly, shallowReadonly } from 'vue'
 
-console.log(getCurrentInstance())
+const user = reactive({
+  name: 'll',
+  job: {
+    job1: 'ww'
+  }
+})
+
+const user2 = shallowReadonly(user)
+user2.name = 'qq'
+console.log(user, user2)
 </script>
 
 <style lang="scss" scoped></style>
