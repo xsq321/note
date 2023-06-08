@@ -1,20 +1,13 @@
 <template>
-  <div></div>
+  <div>
+    {{ countStore.count }}
+  </div>
+  <p><button @click="countStore.count += 10">count+10</button></p>
 </template>
 
 <script setup>
-import { reactive, readonly, shallowReadonly } from 'vue'
-
-const user = reactive({
-  name: 'll',
-  job: {
-    job1: 'ww'
-  }
-})
-
-const user2 = shallowReadonly(user)
-user2.name = 'qq'
-console.log(user, user2)
+import { useCountStore } from '@/stores/countStore'
+const countStore = useCountStore()
 </script>
 
 <style lang="scss" scoped></style>

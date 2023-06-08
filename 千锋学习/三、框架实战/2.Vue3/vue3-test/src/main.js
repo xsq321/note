@@ -12,8 +12,10 @@ import { piniaPlugin } from './stores/plugins'
 const app = createApp(App)
 const pinia = createPinia()
 pinia.use(piniaPlugin)
+// console.log(pinia.state.value)
 
 app.use(ElementPlus)
 app.use(pinia)
+// console.log(app)
 
 app.mount('#app')

@@ -41,7 +41,7 @@ export default defineComponent({
     Comp2x1
   },
   setup() {
-    let activeIndex = ref('Comp1x2')
+    let activeIndex = ref('Test')
     const handleSelect = (key) => {
       activeIndex.value = key
     }

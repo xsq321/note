@@ -10,9 +10,9 @@ import { useCountStore } from '@/stores/countStore.js'
 const countStore = useCountStore()
 console.log(countStore)
 
-countStore.$subscribe((mutation, state) => {
-  console.log(mutation, state)
-})
+// countStore.$subscribe((mutation, state) => {
+//   sessionStorage.setItem('count', state.count)
+// })
 </script>
 
 <style lang="scss" scoped></style>
