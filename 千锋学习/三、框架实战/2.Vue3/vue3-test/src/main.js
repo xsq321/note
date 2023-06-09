@@ -8,6 +8,7 @@ import App from './App.vue'
 
 import { createPinia } from 'pinia'
 import { piniaPlugin } from './stores/plugins'
+import router from './router/index'
 
 const app = createApp(App)
 const pinia = createPinia()
@@ -16,6 +17,7 @@ pinia.use(piniaPlugin)
 
 app.use(ElementPlus)
 app.use(pinia)
+app.use(router)
 // console.log(app)
 
 app.mount('#app')

@@ -7,50 +7,33 @@
     text-color="#fff"
     active-text-color="#ffd04b"
   >
-    <el-menu-item index="Test">test</el-menu-item>
+    <el-menu-item index="test">test</el-menu-item>
     <el-sub-menu index="1">
-      <template #title>测试&练习</template>
-      <el-menu-item index="Comp1x1">01-Vue3响应式</el-menu-item>
-      <el-menu-item index="Comp1x2">02-Pinia</el-menu-item>
+      <template #title>测试{{ '&' }}练习</template>
+      <el-menu-item index="comp1x1">01-Vue3响应式</el-menu-item>
+      <el-menu-item index="comp1x2">02-Pinia</el-menu-item>
     </el-sub-menu>
     <el-sub-menu index="2">
       <template #title>案例</template>
-      <el-menu-item index="Comp2x1">01-组合式函数</el-menu-item>
+      <el-menu-item index="comp2x1">01-组合式函数</el-menu-item>
     </el-sub-menu>
   </el-menu>
   <div style="padding: 10px">
-    <component :is="activeIndex"></component>
+    <router-view></router-view>
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue'
+<script setup>
+import { computed, ref } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
-import Test from './components/Test.vue'
-
-import Comp1x1 from './components/测试&练习/01-Vue3响应式/index.vue'
-import Comp1x2 from './components/测试&练习/02-Pinia/index.vue'
-
-import Comp2x1 from './components/案例/01-组合式函数/index.vue'
-
-export default defineComponent({
-  components: {
-    Test,
-    Comp1x1,
-    Comp1x2,
-    Comp2x1
-  },
-  setup() {
-    let activeIndex = ref('Test')
-    const handleSelect = (key) => {
-      activeIndex.value = key
-    }
-    return {
-      activeIndex,
-      handleSelect
-    }
-  }
-})
+const router = useRouter()
+const route = useRoute()
+let activeIndex = computed(() => route.path.substring(1))
+const handleSelect = (key) => {
+  activeIndex.value = key
+  router.push(key)
+}
 </script>
 
 <style>
