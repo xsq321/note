@@ -1,20 +1,12 @@
-let title: string = "Hello Ts！";
-let num: number = 10;
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  sayHi() {
+    console.log(`我是${this.name},${this.age}岁了！`);
+  }
+}
 
-let list: (number | string)[] = [1, 2, "3"];
-
-let list2: (number | string)[] = [1, 2, "3"];
-
-let list3: Array<number> = [1, 2, 3];
-
-let a: undefined = undefined;
-let b: null = null;
-
-let obj: object = [a, 2];
-
-let x: [number, string];
-x = [num, "ee"];
-console.log(x[1].toString())
-
-let c:string
-c = 'eee'
+let p = new Person("zs", 18);
+p.sayHi(); // 我是zs,18岁了！
