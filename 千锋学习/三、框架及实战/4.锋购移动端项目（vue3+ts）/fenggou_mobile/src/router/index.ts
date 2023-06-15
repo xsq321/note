@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '@/views/Home/index.vue'
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -18,6 +18,17 @@ const router = createRouter({
     {
       path: '/mine',
       component: () => import('@/views/Mine/index.vue')
+    },
+
+    // {
+    //   path: '/not-found',
+    //   component: () => import('@/views/NotFound/index.vue')
+    // },
+    {
+      path: '/:pathMatch(.*)*',
+      // redirect: '/not-found'
+      component: () => import('@/views/NotFound/index.vue'),
+      meta: { hideFooter: true }
     }
   ]
 })

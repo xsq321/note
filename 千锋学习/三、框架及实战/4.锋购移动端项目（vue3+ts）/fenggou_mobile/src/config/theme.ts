@@ -1,4 +1,4 @@
-// 用于修改 vant 组件库默认样式
+// 通过改变变量的值，从而修改 vant 组件库默认样式
 import type { ConfigProviderThemeVars } from 'vant'
 
 export const themeVars: ConfigProviderThemeVars = {

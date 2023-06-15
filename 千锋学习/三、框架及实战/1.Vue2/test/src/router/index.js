@@ -38,6 +38,14 @@ const routes = [
     path: '/comp2x5',
     component: () => import('../pages/测试&练习/05-vuex测试'),
   },
+  {
+    path: '/not-found',
+    component: () => import('../pages/NotFound/index.vue'),
+  },
+  {
+    path: '/*',
+    redirect: '/not-found',
+  },
 ]
 
 const router = new VueRouter({
