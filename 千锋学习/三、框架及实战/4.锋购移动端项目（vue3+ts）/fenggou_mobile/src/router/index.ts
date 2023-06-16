@@ -19,6 +19,11 @@ const router = createRouter({
       path: '/mine',
       component: () => import('@/views/Mine/index.vue')
     },
+    {
+      path: '/login',
+      component: () => import('@/views/Login/index.vue'),
+      meta: { hideFooter: true }
+    },
 
     // {
     //   path: '/not-found',

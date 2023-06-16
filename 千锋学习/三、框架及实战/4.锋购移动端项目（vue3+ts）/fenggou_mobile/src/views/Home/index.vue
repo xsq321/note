@@ -13,16 +13,25 @@
       />
     </template>
     <template #right>
-      <div>登录</div>
+      <span v-if="userStore.token" @click="$router.back()">退出</span>
+      <router-link v-else to="/login" v-slot="{ navigate }" custom>
+        <span @click="navigate">登录</span>
+      </router-link>
     </template>
   </CommonHeader>
   home
 </template>
 
 <script setup lang="ts">
+import { useUserStore } from '@/stores/user'
 import { ref } from 'vue'
 
 const value = ref('')
+const userStore = useUserStore()
+const exit = () => {
+  sessionStorage.setItem('token', '')
+  userStore.setToken('')
+}
 </script>
 
 <style scoped>
