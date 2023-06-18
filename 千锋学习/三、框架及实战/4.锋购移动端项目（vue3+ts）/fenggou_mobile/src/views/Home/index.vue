@@ -13,7 +13,7 @@
       />
     </template>
     <template #right>
-      <span v-if="userStore.token" @click="$router.back()">退出</span>
+      <span v-if="userStore.token" @click="exit">退出</span>
       <router-link v-else to="/login" v-slot="{ navigate }" custom>
         <span @click="navigate">登录</span>
       </router-link>
