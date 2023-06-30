@@ -1,21 +1,27 @@
-import React from "react";
+import { useCallback } from "react";
+import { useState, useMemo } from "react";
 
-export default class LearnEvent2 extends React.Component {
-  num = 1;
-  add() {
-    console.log(this); // 当前this的值取决于调用的上下文环境
-    this.num++;
-  }
-
-  render() {
-    console.log(this); // render 函数内的 this 指向当前组件实例，即当前这个类实例
-    return (
+export default function Test() {
+  const [num, setNum] = useState(1);
+  const [count, setCount] = useState(1);
+  const doubleNum = useMemo(() => {
+    console.log("重新计算");
+    return num * 2;
+  }, [num]);
+  const addNum = useCallback(
+    (val) => {
+      console.log(num);
+      setNum(num + val);
+    },
+    [num]
+  );
+  return (
+    <div>
       <div>
-        <p>{this.num}</p>
-        <button onClick={this.add}>+1</button>
-        <br />
-        <button onClick={this.add.bind(this)}>+1</button>
+        num: {num}, doubleNum: {doubleNum}
       </div>
-    );
-  }
+      <button onClick={() => addNum(1)}>num+1</button>
+      <button onClick={() => setCount(count + 1)}>count+1</button>
+    </div>
+  );
 }

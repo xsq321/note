@@ -1,6 +1,7 @@
 import React from "react";
 import FunctionComponent from "./FunctionComponent";
 import Test from "./test";
+import Test2 from "./Test2";
 
 import Styles from "./test.module.css";
 
@@ -11,7 +12,7 @@ export default class ClassComponent extends React.Component {
   };
   render() {
     // console.log(Styles);
-    const age = 1;
+    // const age = 1;
     return (
       <div>
         <p className={Styles.red}>class component</p>
@@ -23,6 +24,8 @@ export default class ClassComponent extends React.Component {
         <FunctionComponent></FunctionComponent>
         <hr />
         <Test></Test>
+        <hr />
+        <Test2></Test2>
       </div>
     );
   }
