@@ -1,0 +1,12 @@
+.ulBox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
+  border: 1px solid gray;
+  padding: 0;
+  li {
+    list-style: none;
+  }
+}

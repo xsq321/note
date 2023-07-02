@@ -9,6 +9,7 @@ import Comp1x3 from "./测试与练习/03-弹框";
 
 import Comp2x1 from "./案例/01-购物车";
 import Comp2x2 from "./案例/02-劫持渲染";
+import Comp2x3 from "./案例/03-hooks实现劫持渲染";
 
 export default class App extends React.Component {
   render() {
@@ -25,6 +26,7 @@ export default class App extends React.Component {
 
         {/* <Comp2x1></Comp2x1> */}
         {/* <Comp2x2></Comp2x2> */}
+        {/* <Comp2x3></Comp2x3> */}
       </div>
     );
   }
