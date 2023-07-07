@@ -1,15 +1,20 @@
-import { useState, useCallback } from "react";
+import { useSelector } from "react-redux";
+
+import { useActions } from "./store/utils";
+import userActionCreators from "./store/actions/user";
 
 export default function Test() {
-  const [num, setNum] = useState(1);
-  const addNum = useCallback((val) => {
-    console.log(num);
-    setNum((pre) => pre + val);
-  }, []);
+  const age = useSelector((state) => state.user.age);
+
+  const actions = useActions(userActionCreators);
+
+  const add = () => {
+    actions.addAge(2);
+  };
   return (
     <div>
-      <div>{num}</div>
-      <button onClick={() => addNum(1)}>+1</button>
+      <div>{age}</div>
+      <button onClick={() => add()}>age+2</button>
     </div>
   );
 }

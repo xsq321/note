@@ -6,7 +6,10 @@ export default function Popup(props) {
     <div className={Styles.box}>
       <div className={Styles.content}>
         <div>弹窗</div>
-        <button onClick={props.close}>关闭</button>
+        <div>{props.children}</div>
+        <div>
+          <button onClick={props.close}>关闭</button>
+        </div>
       </div>
     </div>,
     document.body
