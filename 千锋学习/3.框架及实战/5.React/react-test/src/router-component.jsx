@@ -15,6 +15,7 @@ const Test = React.lazy(() => import("./Test"));
 const Test2 = React.lazy(() => import("./Test2"));
 const Test3 = React.lazy(() => import("./toolkit/Test3"));
 const User = React.lazy(() => import("./User"));
+const GoodsList = React.lazy(() => import("./toolkit/GoodsList"));
 
 export default function RouterComponent() {
   return (
@@ -28,6 +29,7 @@ export default function RouterComponent() {
           <Route path="/test2" element={<Test2 />}></Route>
           <Route path="/test3" element={<Test3 />}></Route>
           <Route path="/comp2x3" element={<Comp2x3 />}></Route>
+          <Route path="/goodsList" element={<GoodsList />}></Route>
         </Routes>
       </React.Suspense>
     </HashRouter>
