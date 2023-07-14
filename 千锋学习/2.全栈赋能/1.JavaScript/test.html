@@ -7,10 +7,11 @@
     <title>Document</title>
   </head>
   <body>
-    <button>跳转</button>
+    <button>按钮</button>
     <script>
-      document.querySelector("button").addEventListener("click", (e) => {
-        location.href = "https://baidu.com";
+      let btn = document.querySelector("button");
+      btn.addEventListener("click", () => {
+        btn.remove();
       });
     </script>
   </body>

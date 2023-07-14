@@ -1,88 +1,110 @@
-import React from "react";
-import { Space, Table, Tag } from "antd";
+import React, { useEffect, useState } from "react";
+import { Space, Table, Row, Col, Button, Modal, Switch } from "antd";
 import type { ColumnsType } from "antd/es/table";
+import CategoryForm from "./components/CategoryForm";
+import { categoryGet, categoryPut, ICategoryParams } from "@/api/course";
 
-interface DataType {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-  tags: string[];
+interface TableCategoryType extends ICategoryParams {
+  children: ICategoryParams[];
 }
+const Category: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [cateList, setCateList] = useState<TableCategoryType[]>([]);
+  const columns: ColumnsType<ICategoryParams> = [
+    {
+      title: "父级ID",
+      dataIndex: "fatherId",
+      key: "fatherId",
+    },
+    {
+      title: "分类名称",
+      dataIndex: "cateName",
+      key: "cateName",
+    },
+    {
+      title: "上架状态",
+      dataIndex: "status",
+      key: "status",
+      render: (bool, record, index) => {
+        return (
+          <Switch
+            checked={bool}
+            onChange={() => handleStatus(bool, record, index)}
+          ></Switch>
+        );
+      },
+    },
+    {
+      title: "操作",
+      key: "action",
+      render: (_, record) => (
+        <Space size="middle">
+          <Button type="primary">编辑</Button>
+          <Button type="primary" danger>
+            删除
+          </Button>
+        </Space>
+      ),
+    },
+  ];
+  const handleStatus = (
+    bool: boolean,
+    record: ICategoryParams,
+    index: number
+  ) => {
+    categoryPut(record.objectId as string, !bool).then((res) => {
+      if (record.fatherId === "0-0") {
+        cateList[index].status = !bool;
+      } else {
+        let fidx = cateList.findIndex(
+          (item) => item.objectId === record.fatherId
+        );
+        cateList[fidx].children[index].status = !bool;
+      }
+      setCateList([...cateList]);
+    });
+  };
 
-const columns: ColumnsType<DataType> = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
-    render: (text) => <a>{text}</a>,
-  },
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
-  },
-  {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    render: (_, { tags }) => (
-      <>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
-            color = "volcano";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: "Action",
-    key: "action",
-    render: (_, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
-  },
-];
+  useEffect(() => {
+    categoryGet({}).then((res) => {
+      let { results } = res.data;
+      let arr = results.filter(
+        (item: ICategoryParams) => item.fatherId === "0-0"
+      );
+      arr.forEach((item: TableCategoryType) => {
+        item.children = results.filter(
+          (child: ICategoryParams) => child.fatherId === item.objectId
+        );
+      });
+      setCateList(arr);
+    });
+  }, []);
 
-const data: DataType[] = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"],
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sydney No. 1 Lake Park",
-    tags: ["cool", "teacher"],
-  },
-];
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
-const Category: React.FC = () => <Table columns={columns} dataSource={data} />;
+  return (
+    <div>
+      <Row justify="end">
+        <Col>
+          <Button type="primary" onClick={() => setIsModalOpen(true)}>
+            新增分类
+          </Button>
+          <Modal
+            title="新增分类"
+            open={isModalOpen}
+            onCancel={handleCancel}
+            footer={null}
+            // width={800}
+          >
+            <CategoryForm setIsModalOpen={setIsModalOpen}></CategoryForm>
+          </Modal>
+        </Col>
+      </Row>
+      <Table columns={columns} dataSource={cateList} rowKey="objectId" />
+    </div>
+  );
+};
 
 export default Category;

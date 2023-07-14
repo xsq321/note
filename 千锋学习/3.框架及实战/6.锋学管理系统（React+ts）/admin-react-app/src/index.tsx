@@ -4,6 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { HashRouter } from "react-router-dom";
+import Cloud from "leancloud-storage";
+import { BASE, ID, KEY } from "@/config/index";
+import { Provider } from "react-redux";
+import store from "./store";
+
+Cloud.init({ appId: ID, appKey: KEY, serverURL: BASE });
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,7 +17,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <HashRouter>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </HashRouter>
   </React.StrictMode>
 );

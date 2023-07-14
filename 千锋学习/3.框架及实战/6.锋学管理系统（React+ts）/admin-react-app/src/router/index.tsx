@@ -1,4 +1,6 @@
+import ArticleEdit from "@/views/Course/ArticleEdit";
 import ArticleList from "@/views/Course/ArticleList";
+import ArticlePublic from "@/views/Course/ArticlePublic";
 import Category from "@/views/Course/Category";
 import DashBoard from "@/views/DashBoard";
 import { AreaChartOutlined } from "@ant-design/icons";
@@ -28,6 +30,20 @@ export const mainRoutes: IMenuType[] = [
         label: "课程列表",
         title: "课程列表",
         element: <ArticleList />,
+      },
+      {
+        key: "/course/articlePublic",
+        label: "课程发布",
+        title: "课程发布",
+        element: <ArticlePublic />,
+        hidden: true,
+      },
+      {
+        key: "/course/articleEdit",
+        label: "课程编辑",
+        title: "课程编辑",
+        element: <ArticleEdit />,
+        hidden: true,
       },
     ],
   },
