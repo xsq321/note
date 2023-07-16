@@ -3,6 +3,7 @@ import ArticleList from "@/views/Course/ArticleList";
 import ArticlePublic from "@/views/Course/ArticlePublic";
 import Category from "@/views/Course/Category";
 import DashBoard from "@/views/DashBoard";
+import Setting from "@/views/Setting";
 import { AreaChartOutlined } from "@ant-design/icons";
 import { IMenuType } from "./inter";
 export const mainRoutes: IMenuType[] = [
@@ -46,5 +47,12 @@ export const mainRoutes: IMenuType[] = [
         hidden: true,
       },
     ],
+  },
+  {
+    key: "/setting",
+    label: "个人设置",
+    title: "个人设置",
+    icon: <AreaChartOutlined />,
+    element: <Setting />,
   },
 ];
