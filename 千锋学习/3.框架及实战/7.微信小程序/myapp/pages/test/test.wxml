@@ -1,0 +1,5 @@
+
+<view>sss</view>
+
+<icon color="red" type="success" size="30"></icon>
+<checkbox value="篮球" checked="{{false}}"/>

@@ -1,0 +1,11 @@
+/* pages/1-todolist/1-todolist.wxss */
+.header{
+  display: flex;
+  padding: 10px ;
+}
+
+input{
+  border: 1px solid black;
+  height: 30px;
+  border-radius: 10px;
+}

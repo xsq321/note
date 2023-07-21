@@ -1,0 +1,7 @@
+<!--pages/2-highLight/2-highLight.wxml-->
+
+<view class="navbar">
+  <view wx:for="{{list}}" wx:key="index" class="{{index==current?'active':''}}" bindtap="handleTap" data-myid="{{index}}">
+    {{item}}
+  </view>
+</view>

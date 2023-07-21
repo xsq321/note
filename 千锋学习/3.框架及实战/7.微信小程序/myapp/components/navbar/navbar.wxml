@@ -1,0 +1,7 @@
+<!--components/navbar/navbar.wxml-->
+
+<view wx:for="{{datalist}}" wx:key="index">
+  {{item}}
+</view>
+
+<slot name="slot1"></slot>

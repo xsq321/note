@@ -35,9 +35,11 @@ const userSlice = createSlice({
     loginSuccess(state, action) {
       state.isLoading = false;
       state.isLogin = true;
-      let { userInfo, atuoLogin } = action.payload;
+      let { userInfo, autoLogin } = action.payload;
       state.userInfo = userInfo;
-      if (atuoLogin) {
+      let auto = autoLogin ? true : false;
+      store2("autoLogin", auto);
+      if (autoLogin) {
         store2("userInfo", userInfo);
       } else {
         store2.session("userInfo", userInfo);
@@ -49,6 +51,15 @@ const userSlice = createSlice({
       state.userInfo = null;
       store2.remove("userInfo");
       store2.session.remove("userInfo");
+    },
+    loginUpdate(state, action) {
+      let auto = store2.get("autoLogin");
+      state.userInfo = action.payload;
+      if (auto) {
+        store2("userInfo", action.payload);
+      } else {
+        store2.session("userInfo", action.payload);
+      }
     },
   },
 });
@@ -72,5 +83,6 @@ export const userLoginAsync = (
       });
   }, 1000);
 };
-export const { loginStart, loginSuccess, loginFail } = userSlice.actions;
+export const { loginStart, loginSuccess, loginFail, loginUpdate } =
+  userSlice.actions;
 export default userSlice.reducer;

@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { Store } from "antd/es/form/interface";
 import user from "./modules/user";
 const store = configureStore({
   reducer: {

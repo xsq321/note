@@ -1,6 +1,6 @@
 import { IMenuType } from "./inter";
 import { Route } from "react-router-dom";
-import { Fragment, ReactNode } from "react";
+import { Fragment } from "react";
 
 export const renderRoutes = (mainRoutes: IMenuType[]) => {
   return mainRoutes.map((item) => {

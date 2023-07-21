@@ -11,12 +11,19 @@
       let obj = {
         b: "ee",
       };
+      // Object.defineProperty(obj, "a", {
+      //   configurable: true, // 是否可被删除
+      //   enumerable: true, // 是否可枚举
+      //   writable: true, // 是否可被修改，这三个默认都为 false
+      //   value: "hello", // 默认为 undefined
+      // });
       Object.defineProperty(obj, "a", {
-        configurable: true, // 是否可被删除
-        enumerable: true, // 是否可枚举
-        writable: true, // 是否可被修改，这三个默认都为 false
-        value: "hello", // 默认为 undefined
+        get() {
+          return "hello";
+        },
+        set(val) {},
       });
+      obj.a = 8;
       console.log(obj);
     </script>
   </body>

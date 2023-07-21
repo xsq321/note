@@ -3,6 +3,7 @@ import { Breadcrumb, Layout, theme } from "antd";
 import AppMenu from "./components/AppMenu";
 import AppHeader from "./components/AppHeader";
 import { Outlet } from "react-router-dom";
+import AppBreadCrumb from "./components/AppBreadCrumb";
 
 const { Content, Footer, Sider } = Layout;
 
@@ -27,10 +28,7 @@ const MainLayout: React.FC = () => {
       <Layout>
         <AppHeader></AppHeader>
         <Content style={{ margin: "0 16px" }}>
-          <Breadcrumb
-            style={{ margin: "16px 0" }}
-            items={[{ title: "User" }, { title: "bill" }]}
-          />
+          <AppBreadCrumb />
           <div
             style={{
               padding: 24,

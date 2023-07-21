@@ -1,0 +1,10 @@
+<!--pages/1-todolist/1-todolist.wxml-->
+<view class="header">
+  <input type="text" bindinput="changeVal" value="{{val}}"/> 
+  <button type="primary" size="mini" bindtap="add">添加</button>
+</view>
+
+<view wx:for="{{list}}" wx:key="index">
+  <button size="mini" type="primary" bindtap="delete" data-index="{{index}}">删除</button>---第{{index+1}}件事---{{item}}
+</view>
+<view wx:if="{{list.length===0}}">暂无待办事项</view>

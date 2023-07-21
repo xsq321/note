@@ -1,0 +1,9 @@
+<!--pages/demo/demo.wxml-->
+<text>{{count}}</text>
+<button type="primary" bindtap="addCount" data-val="2">count+2</button>
+
+<view wx:for="{{list}}" wx:for-item="itemName" wx:for-index="itemIndex" wx:key="itemIndex">
+  {{itemIndex}}-{{itemName}}
+</view>
+
+<view wx:if="{{isShow}}">内容</view>

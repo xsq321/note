@@ -1,0 +1,6 @@
+<!--pages/4-selfComponent/4-selfComponent.wxml-->
+
+<view>引入自定义组件</view>
+<navbar>
+  <view slot="slot1">内容1</view>
+</navbar>

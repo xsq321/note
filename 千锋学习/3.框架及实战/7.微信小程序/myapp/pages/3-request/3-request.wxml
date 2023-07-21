@@ -1,0 +1,2 @@
+<!--pages/3-request/3-request.wxml-->
+<button type="primary" bindtap="handleRequest">request</button>

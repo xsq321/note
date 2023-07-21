@@ -4,6 +4,7 @@ import ImgUpload from "@/components/ImgUpload";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "@/store/hooks";
 import { userUpdate } from "@/api/user";
+import { loginUpdate } from "@/store/modules/user";
 
 const { Option } = Select;
 
@@ -27,7 +28,10 @@ const Setting: React.FC = () => {
 
   const onFinish = (values: any) => {
     // console.log(values);
-    if (user.userInfo) userUpdate(user.userInfo.objectId, values);
+    if (user.userInfo)
+      userUpdate(user.userInfo.objectId, values).then((res) => {
+        dispatch(loginUpdate({ ...user.userInfo, ...values }));
+      });
   };
 
   return (

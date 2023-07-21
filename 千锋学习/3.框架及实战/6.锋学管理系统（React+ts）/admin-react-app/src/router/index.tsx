@@ -2,7 +2,8 @@ import ArticleEdit from "@/views/Course/ArticleEdit";
 import ArticleList from "@/views/Course/ArticleList";
 import ArticlePublic from "@/views/Course/ArticlePublic";
 import Category from "@/views/Course/Category";
-import DashBoard from "@/views/DashBoard";
+import DashBoard from "@/views/DashBoard/DashBoard";
+import Map from "@/views/Map";
 import Setting from "@/views/Setting";
 import { AreaChartOutlined } from "@ant-design/icons";
 import { IMenuType } from "./inter";
@@ -47,6 +48,13 @@ export const mainRoutes: IMenuType[] = [
         hidden: true,
       },
     ],
+  },
+  {
+    key: "/map",
+    label: "高德地图",
+    title: "高德地图",
+    icon: <AreaChartOutlined />,
+    element: <Map />,
   },
   {
     key: "/setting",
