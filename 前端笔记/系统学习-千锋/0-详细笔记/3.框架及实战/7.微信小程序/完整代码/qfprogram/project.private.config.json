@@ -1,0 +1,55 @@
+{
+    "setting": {
+        "compileHotReLoad": true
+    },
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/detail/detail",
+                    "pathName": "pages/detail/detail",
+                    "query": "name=荣耀9x&id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/search/search",
+                    "pathName": "pages/search/search",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/searchlist/searchlist",
+                    "pathName": "pages/searchlist/searchlist",
+                    "query": "id=5&name=vivo",
+                    "scene": null
+                },
+                {
+                    "name": "pages/category/category",
+                    "pathName": "pages/category/category",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/telform/telform",
+                    "pathName": "pages/telform/telform",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/shopcar/shopcar",
+                    "pathName": "pages/shopcar/shopcar",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/center/center",
+                    "pathName": "pages/center/center",
+                    "query": "",
+                    "scene": null
+                }
+            ]
+        }
+    },
+    "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+    "projectname": "qfprogram"
+}

@@ -1,2 +1,2 @@
 <!--pages/center/center.wxml-->
-<text>pages/center/center.wxml</text>
+<button bindtap="handleTap" type="primary">授权</button>

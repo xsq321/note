@@ -5,7 +5,19 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+		userInfo:{}
+	},
 
+	handleTap(){
+		wx.getUserProfile({
+      desc: '用于完善会员资料', 
+      success: (res) => {
+				console.log(res);
+        this.setData({
+          userInfo: res.userInfo,
+        })
+      }
+    })
 	},
 
 	/**

@@ -1,3 +1,5 @@
+import request from "../../utils/request"
+
 // pages/home/home.js
 Page({
 
@@ -5,14 +7,39 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-
+		userList:[]
 	},
 
+	handlePost(){
+		request({
+			url:'/users',
+			method:'post',
+			data:{
+				username:'ww',
+				password:'333'
+			}
+		}).then(res=>{
+			this.handleGet()
+		})
+	},
+	handleGet(){
+		request({
+			url:'/users',
+		}).then(res=>{
+			this.setData({
+				userList:res
+			})
+		})
+	},
+	handleTap(){
+		console.log('1');
+	},
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad(options) {
-
+		console.log(options);
+		this.handleGet()
 	},
 
 	/**
@@ -54,7 +81,7 @@ Page({
 	 * 页面上拉触底事件的处理函数
 	 */
 	onReachBottom() {
-
+		console.log('到底了');
 	},
 
 	/**

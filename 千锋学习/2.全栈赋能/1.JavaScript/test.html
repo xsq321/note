@@ -8,23 +8,24 @@
   </head>
   <body>
     <script>
-      let obj = {
-        b: "ee",
-      };
-      // Object.defineProperty(obj, "a", {
-      //   configurable: true, // 是否可被删除
-      //   enumerable: true, // 是否可枚举
-      //   writable: true, // 是否可被修改，这三个默认都为 false
-      //   value: "hello", // 默认为 undefined
-      // });
-      Object.defineProperty(obj, "a", {
-        get() {
-          return "hello";
-        },
-        set(val) {},
-      });
-      obj.a = 8;
-      console.log(obj);
+      function outer() {
+        let i = 1;
+        function fn() {
+          let j = { num: 1 };
+          j.num++;
+          i++;
+          return j;
+        }
+        return fn;
+      }
+      const fun = outer();
+      let obj = fun();
+      const fun2 = outer();
+      console.log(fun());
+      console.log(fun());
+      console.log(fun());
+      console.log(fun());
+      console.log(fun2());
     </script>
   </body>
 </html>

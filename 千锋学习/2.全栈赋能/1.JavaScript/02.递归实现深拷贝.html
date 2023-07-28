@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function cloneDeep(data) {
+        let tamp;
+        if (data instanceof Array) tamp = [];
+        else tamp = {};
+        for (let item in data) {
+          if (data[item] instanceof Array || isObject(data[item])) {
+            console.log(data[item]);
+            tamp[item] = cloneDeep(data[item]);
+          } else {
+            tamp[item] = data[item];
+          }
+        }
+        return tamp;
+      }
+      function isObject(data) {
+        if (
+          typeof data === "object" &&
+          data !== null &&
+          data instanceof Array === false &&
+          data instanceof Number === false &&
+          data instanceof String === false &&
+          data instanceof Boolean === false
+        )
+          return true;
+      }
+      let obj = {
+        hobby: ["篮球", "足球"],
+        name: "oo",
+        arr: [{ a: "1", b: "2" }],
+      };
+      let obj2 = cloneDeep(obj);
+      obj2.hobby[0] = "2";
+      obj2.arr[0].a = "3";
+      console.log(obj, obj2);
+    </script>
+  </body>
+</html>

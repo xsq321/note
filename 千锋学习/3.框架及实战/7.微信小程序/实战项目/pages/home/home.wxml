@@ -1,2 +1,5 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<button class="postButton" bindtap="handlePost" type="primary">post</button>
+<view wx:for="{{userList}}" wx:key="index" bindtap="handleTap">
+	<view>{{index}}---{{item.username}}</view>
+</view>
