@@ -1,7 +1,0 @@
-function goodFilter(list,mytext){
-  return list.filter(function(item){
-    return item.indexOf(mytext)>-1
-  })
-}
-
-module.exports = goodFilter
