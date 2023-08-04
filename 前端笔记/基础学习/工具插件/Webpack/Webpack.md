@@ -12,11 +12,11 @@
 
 - webpack能处理js/json资源，不能处理css/img等其他资源
 
-  webpack能将es6模块化编译成浏览器能识别的模块化（import等）
+  webpack能将es6模块化编译成浏览器能识别的模块化（如 import, export 等）
 
   生产环境比开发环境多一个压缩js代码功能
 
----
+
 
 #### 2. 打包资源
 
@@ -36,8 +36,8 @@ module.exports = {
     module: {	//loader(翻译)的配置
         rules:[	
             {
-                test: /\.css$/,	//以.css结尾
-                use: [	//use数组中loader执行顺序是从后到前的
+                test: /\.css$/,	//以 .css 结尾
+                use: [	// use 数组中 loader 执行顺序是从后到前的
                     'style-loader',	//创建style标签，将js中的样式资源插入到head中生效
                     'css-loader' //将css文件变成commonjs模块加载到js中，里面的内容是样式字符串
                 ]
@@ -93,7 +93,7 @@ new HtmlWebpackPluginew({
 }
 ```
 
----
+
 
 #### 3. devServer
 
@@ -114,7 +114,7 @@ devServer: {
 }
 ```
 
----
+
 
 #### 4. css处理
 
@@ -165,6 +165,8 @@ process.env.NODE_ENV = 'development'
 下载插件：optimize-css-assets-webpack-plugin
 
 在plugins中直接new调用即可
+
+
 
 #### 5. js处理
 

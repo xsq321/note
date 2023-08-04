@@ -7,7 +7,7 @@
  
 <script>
   import mqtt from 'mqtt'
-  // 配置mqtt
+  // 配置 mqtt 
   var client = null
   const options = {
     connectTimeout: 40000,

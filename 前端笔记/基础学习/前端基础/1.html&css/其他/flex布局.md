@@ -49,7 +49,7 @@
 | flex-end      | 在侧轴的尾部开始排列                   |
 | center        | 在侧轴中间显示                         |
 | space-around  | 子项在侧轴平分剩余空间                 |
-| space-between | 子项在侧轴先分布在两头，在平分剩余空间 |
+| space-between | 子项在侧轴先分布在两头，再平分剩余空间 |
 | stretch       | 子项元素高度平分父元素高度             |
 
 ##### 1.5. align-items
@@ -69,7 +69,7 @@
 
 flex-flow: column wrap;  //设置主轴方向为从上到下，同时允许换行
 
----
+
 
 #### 2. 子项常见属性
 
@@ -85,15 +85,13 @@ flex-flow: column wrap;  //设置主轴方向为从上到下，同时允许换�
 
 ​	flex: 0 0 25%; 拆开说明：flex:0 0 25% 等于flex-grow=0(默认不放大)+flex-shrink=0(不缩小)+flex-basis=25%( 项目占据主轴的空间)
 
-
-
 ##### 2.2. align-self
 
 控制子项自己在侧轴上的排列方式
 
 align-self属性允许单个项目有与其他项目不一样的对齐方式，会覆盖align-items属性
 
-其属性值与效果都与align-items相同，只不过只控制本身的一个项目
+其属性值与效果都与align-items相同，只不过只控制本身这一个项目
 
 ##### 2.3. order
 
@@ -101,17 +99,5 @@ align-self属性允许单个项目有与其他项目不一样的对齐方式，�
 
 `order: 数字; //数值越小，排列越靠前，默认为0，可以为负数`
 
----
 
-#### 3. 案例制作知识点
-
-fw软件测量图片的高宽度，可用于使用精灵图
-
-```
--- normalize.css   //可去github下载
--- position: fixed;	//固定定位，使搜索栏固定
--- transform: translateX(-50%)	//向右移自身宽度的50%
--- box-sizing: border-box	//通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。即边框大小不会影响整个盒子的大小
--- background-size: 100px auto;	//背景图片宽为100px,高自动
-```
 

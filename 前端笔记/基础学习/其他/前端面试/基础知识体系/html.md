@@ -6,5 +6,5 @@
 - 语义化标签 header、nav、section、article、footer
 - 绘画 canvas
 - 历史 history
-- 多任务 webworker、全双工通信协议 websocket
+- 多任务 webworker、全双工通信协议 websocket 
 

@@ -4,7 +4,7 @@
 
 2. 登录qq，ctrl+alt+A截图时，可以获取到鼠标位置的颜色值
 
-3. el-table与el-switch结合使用时失效的问题：用template包裹可解决
+3. el-table与el-switch结合使用时失效的问题：用 template 包裹可解决
 
    ```html
    <template slot-scope="scope">

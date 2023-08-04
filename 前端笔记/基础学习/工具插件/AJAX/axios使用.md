@@ -13,7 +13,7 @@ Vue.prototype.$http = http
 this.$http.get('url',{params,headers}).then((response)=>{}).catch((err)=>{})
 ```
 
----
+
 
 #### 2. 二次封装
 
@@ -96,7 +96,7 @@ class HttpRequest {
 export default new HttpRequest(baseUrl)
 ```
 
----
+
 
 #### 3. 使用
 

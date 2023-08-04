@@ -1,6 +1,6 @@
 #### 1. 创建
 
-- 在 src 文件下建立 store 文件夹，里面新建 index.js 文件：
+- 在 src 文件夹下建立 store 文件夹，里面新建 index.js 文件：
 
   ```js
   import Vue from 'vue'
@@ -67,6 +67,8 @@
   ```
   
   ==记得加 namespaced: true,==
+
+
 
 #### 2. 使用
 

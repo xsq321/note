@@ -41,6 +41,8 @@ export default service
 
 具体查看若依系统前后端分离版代码 utils -> request.js
 
+
+
 #### 2. 使用
 
 ```js
@@ -59,11 +61,10 @@ export function getAerobicSubunit(subunitId) {
   return request({
     url: '/aeration/aerobic-tank-subunit/' + subunitId,
     method: 'get',
-    // data:data  // post、put 等请求才有data
+    // data:data  // post、put 等请求才有 data
   })
 }
 ```
-
 
 
 
