@@ -15,6 +15,8 @@
 
 13. slice不会改变原数组，但splice会，而且splice(start,number,new...)新插入的元素是从start的位置开始插入的,而其原本的元素则会排在新插入元素的后面（number为0时的情况）；Set可以自动去重
 
+14. 归并排序
+
 
 
 
