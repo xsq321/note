@@ -14,7 +14,7 @@
 - 客户端自上而下执行代码
   其中遇到CSS加载的时候，CSS不会阻塞DOM树的解析，但是会阻塞DOM树的渲染，并且CSS会阻塞下面的JS的执行
   然后是JS加载，JS加载会影响DOM的解析，之所以会影响，是因为JS可能会删除添加节点，如果先解析后加载的话，DOM树还得重新解析，性能比较差。如果不想阻塞DOM树的解析的话，可以给script添加一个defer或者async的标签。
-  defer：不会阻塞DOM解析，等DOM解析完之后在运行，在DOMContentloaed之前
+  defer：不会阻塞DOM解析，等DOM解析完之后再运行，在DOMContentloaed之前
   async: 不会阻塞DOM解析，等该资源下载完成之后立刻运行
   进行DOM渲染和Render树渲染
   获取html并解析为Dom树

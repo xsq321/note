@@ -1,5 +1,5 @@
 export const piniaPlugin = (context) => {
-  // console.log(context)
+  console.log('context: ', context)
   context.store.title = '通过store直接添加公共属性'
 
   // 保存 pinia 到本地
