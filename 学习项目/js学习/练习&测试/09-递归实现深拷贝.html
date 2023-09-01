@@ -21,15 +21,17 @@
           return obj;
         }
         if (obj instanceof Array) {
-          let obj2 = [...obj];
-          obj2 = obj2.map((item) => {
+          // let obj2 = [...obj];
+          let obj2 = [];
+          obj2 = obj.map((item) => {
             return cloneDeep(item);
           });
           return obj2;
         }
-        let obj2 = Object.assign({}, obj);
-        for (let key in obj2) {
-          obj2[key] = cloneDeep(obj2[key]);
+        // let obj2 = Object.assign({}, obj);
+        let obj2 = {};
+        for (let key in obj) {
+          obj2[key] = cloneDeep(obj[key]);
         }
         return obj2;
       }
