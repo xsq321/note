@@ -8,9 +8,39 @@
   </head>
   <body>
     <script>
-      let str = "abc";
-      str[1] = "a";
-      console.log(str[1]);
+      let arr1 =
+        "zikwvkijajpkaicihcffiemzexmwjjlyrylxcuoewdmpivudhmgkuodjaurazdjnlgtpwz".split(
+          ""
+        );
+      let arr2 =
+        "wpnmubqfsnmapqpufmmsphqehjplwjkqspnnpywsvvjilxbcfsrygbelquaalenvkruyltiwqcpdrxgstywaja".split(
+          ""
+        );
+      let min = 1000;
+      // fn(arr2, 0, 0);
+      console.log(min);
+
+      function fn(arr, i, x) {
+        let temp = [...arr];
+        if (i === arr1.length) {
+          min = Math.min(min, x + temp.length - i);
+        } else {
+          if (temp[i] === arr1[i]) fn(temp, i + 1, x);
+          else {
+            let temp2 = [...temp];
+            if (i < temp.length) {
+              fn(temp, i + 1, x + 1);
+              let index = temp.indexOf(arr1[i], i);
+              if (index !== -1) {
+                temp.splice(i, index - i);
+                fn(temp, i, x + index - i);
+              }
+            }
+            temp2.splice(i, 0, arr1[i]);
+            fn(temp2, i + 1, x + 1);
+          }
+        }
+      }
     </script>
   </body>
 </html>

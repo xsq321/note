@@ -1,19 +1,20 @@
 <template>
-  <div>
-    {{ countStore.count }}
-  </div>
-  <p><button @click="countStore.count += 10">count+10</button></p>
-  <button @click="open">show message</button>
+  <div></div>
 </template>
 
 <script setup>
-import { useCountStore } from '@/stores/countStore'
-import { ElMessage } from 'element-plus'
-const countStore = useCountStore()
+import { reactive, toRaw } from 'vue'
 
-const open = () => {
-  ElMessage('sss')
+function useRaw() {
+  const a1 = { title: 100 }
+  const a2 = reactive(a1)
+  const a3 = toRaw(a2)
+  console.log('toRow(a2)===a1', a3 === a1)
+  console.log('a2===a1', a2 === a1)
+  return [a1, a2, a3]
 }
+let arr = useRaw()
+console.log(arr)
 </script>
 
 <style lang="scss" scoped></style>
