@@ -1,38 +1,49 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '@/views/Home/index.vue'
+import AppMain from '@/views/AppMain/index.vue'
+import AppCart from '@/views/AppCart/index.vue'
+import AppMine from '@/views/AppMine/index.vue'
+import AppList from '@/views/AppList/index.vue'
+import AppDetail from '@/views/AppDetail/index.vue'
+import AppLogin from '@/views/AppLogin/index.vue'
+import AppRegisterStep1 from '@/views/AppRegister/Step1.vue'
+import AppRegisterStep2 from '@/views/AppRegister/Step2.vue'
+import AppRegisterStep3 from '@/views/AppRegister/Step3.vue'
+
+import AppNotFound from '@/views/AppNotFound/index.vue'
+
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
+    { path: '/', redirect: '/main' },
+    { path: '/main', name: 'main', component: AppMain },
+    { path: '/cart', name: 'cart', component: AppCart },
+    { path: '/mine', name: 'mine', component: AppMine },
+    { path: '/list', name: 'list', component: AppList, meta: { hideFooter: true } },
+    // 动态路由传参  params传参方式
+    { path: '/detail/:proid', name: 'detail', component: AppDetail, meta: { hideFooter: true } },
+    { path: '/login', name: 'login', component: AppLogin, meta: { hideFooter: true } },
     {
-      path: '/',
-      redirect: '/home'
-    },
-    {
-      path: '/home',
-      component: Home
-    },
-    {
-      path: '/cart',
-      component: () => import('@/views/Cart/index.vue')
-    },
-    {
-      path: '/mine',
-      component: () => import('@/views/Mine/index.vue')
-    },
-    {
-      path: '/login',
-      component: () => import('@/views/Login/index.vue'),
+      path: '/register-step1',
+      name: 'register-step1',
+      component: AppRegisterStep1,
       meta: { hideFooter: true }
     },
-
-    // {
-    //   path: '/not-found',
-    //   component: () => import('@/views/NotFound/index.vue')
-    // },
+    {
+      path: '/register-step2',
+      name: 'register-step2',
+      component: AppRegisterStep2,
+      meta: { hideFooter: true }
+    },
+    {
+      path: '/register-step3',
+      name: 'register-step3',
+      component: AppRegisterStep3,
+      meta: { hideFooter: true }
+    },
     {
       path: '/:pathMatch(.*)*',
-      // redirect: '/not-found'
-      component: () => import('@/views/NotFound/index.vue'),
+      name: 'NotFound',
+      component: AppNotFound,
       meta: { hideFooter: true }
     }
   ]

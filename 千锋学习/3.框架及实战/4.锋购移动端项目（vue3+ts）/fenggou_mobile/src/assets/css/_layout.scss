@@ -1,1 +1,19 @@
-// 布局样式
+@import './var.scss';
+
+.app-common_header{
+  background-color: $red-color;
+  font-weight: bold;
+  .van-nav-bar__left,
+  .van-nav-bar__title,
+  .van-nav-bar__right{
+    color: #fff;
+    font-size: 15px;
+    .van-icon{
+      color: #fff;
+      font-size: 20px;
+    }
+  }
+  .van-search{
+    padding: 0;
+  }
+}

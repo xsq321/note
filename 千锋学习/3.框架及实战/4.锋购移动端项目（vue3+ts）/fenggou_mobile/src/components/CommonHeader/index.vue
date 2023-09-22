@@ -1,46 +1,32 @@
 <template>
-  <div class="header">
-    <div class="left">
-      <slot name="left"></slot>
-    </div>
-    <div class="center">
-      <slot name="center"></slot>
-    </div>
-    <div class="right">
-      <slot name="right"></slot>
-    </div>
-  </div>
+  <!-- click-left	点击左侧按钮时触发 -->
+  <van-nav-bar :title="title" :left-arrow="back" @click-left="handleBack" fixed>
+    <template v-if="!back" #left>
+      <slot name="left" />
+    </template>
+    <template v-if="!title" #title>
+      <slot name="title" />
+    </template>
+    <template #right>
+      <slot name="right" />
+    </template>
+  </van-nav-bar>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+interface IHeaderProps {
+  title?: string
+  back?: boolean
+}
+const { title, back = false } = defineProps<IHeaderProps>()
 
-<style scoped lang="scss">
-@import '@/assets/css/var.scss';
-.header {
-  height: 1rem;
-  background-color: $red-color;
-  color: white;
-  display: flex;
-  font-size: 0.4rem;
+const router = useRouter()
+// 返回上一页
+const handleBack = () => {
+  // 有返回按钮，才可以返回
+  if (back) router.back()
 }
-.left {
-  width: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.center {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-.right {
-  width: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.3rem;
-}
-</style>
+</script>
+
+<style scoped></style>

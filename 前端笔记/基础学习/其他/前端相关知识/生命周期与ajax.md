@@ -23,4 +23,4 @@ Created的使用场景：如果页面首次渲染的就来自后端数据。因�
 
 第一点：能更快获取到服务端数据，减少页面 loading 时间；
 
-第二点：放在 created 中有助于一致性，因为 ssr 不支持 beforeMount 、mounted 钩子函数。
+第二点：放在 created 中有助于一致性，因为 ssr（服务器端） 不支持 beforeMount 、mounted 钩子函数。

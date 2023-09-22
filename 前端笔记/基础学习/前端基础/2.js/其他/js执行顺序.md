@@ -28,9 +28,9 @@ console.log('d')
 
 微任务包括 `process.nextTick` ，`promise.then` ，`MutationObserver`
 
-宏任务包括 `script` ， `setTimeout` ，`setInterval` ，`setImmediate` ，`I/O` ，`UI rendering`
+宏任务包括 `script` ， `setTimeout` ，`setInterval` ，`setImmediate` ，`I/O` ，`UI rendering` ，Ajax 请求，事件回调
 
-注意：Promise是同步任务，只是他的 then 是异步微任务
+注意：Promise是同步任务，只是他的 then 是异步微任务；nextTick 先执行
 
 ##### 3. 宏任务微任务的执行过程
 
